@@ -1,2 +1,0 @@
-# mtwedding
-A JavaScript project
