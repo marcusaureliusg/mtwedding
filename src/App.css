@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+/* App.css */
+.sidebar-toggle {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  z-index: 2000;
+  /* Add more styling as needed */
+}

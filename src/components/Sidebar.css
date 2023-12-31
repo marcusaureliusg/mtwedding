@@ -1,0 +1,23 @@
+/* Sidebar.css */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Start off-screen */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    transition: left 0.3s;
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    left: 0; /* Move on-screen when 'open' class is added */
+  }
+
+  .sidebar a {
+    display: block; /* This makes each link take up a full line */
+    color: white;
+    text-decoration: none;
+    padding: 10px; /* Add padding for better spacing */
+    /* ... other styles ... */
+  }
