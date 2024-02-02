@@ -23,22 +23,22 @@ Running Locally
 To run the website locally, follow these steps:
 
 Clone the repository:
-bash
-Copy code
+```
 git clone https://github.com/marcusaureliusg/mtwedding
+```
+
 Install dependencies:
-Copy code
 npm install
+
 Start the development server:
-sql
-Copy code
 npm start
+
 Open http://localhost:3000 in your browser.
+
 Deployment
 The site is automatically deployed to Firebase Hosting upon pushing to the main branch. For manual deployment, use:
-
-Copy code
 firebase deploy
+
 Contributing
 We welcome contributions from our friends and family! Whether it's a typo fix or a new feature, please feel free to make changes and submit a pull request.
 
