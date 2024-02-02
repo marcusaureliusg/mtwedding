@@ -26,6 +26,10 @@ This website is built using React and hosted on Firebase. It leverages Firebase 
 - **Authentication:** Firebase Authentication
 - **Development & Build Tool:** Vite
 
+## Prerequisites
+Before you begin, ensure you have installed the latest version of:
+-Node.js https://nodejs.org/en
+
 ## Running Locally
 
 To run the website locally, follow these steps:
@@ -45,7 +49,6 @@ npm install
 ```bash
 npm run dev
 ```
-
 Open http://localhost:3000 in your browser.
 
 ## Deployment
