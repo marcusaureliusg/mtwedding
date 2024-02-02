@@ -29,7 +29,7 @@ This website is built using React and hosted on Firebase. It leverages Firebase 
 ## Prerequisites
 
 Before you begin, ensure you have installed the latest version of:
-Node.js https://nodejs.org/en
+[Node.js](https://nodejs.org/en)
 
 ## Running Locally
 
@@ -38,7 +38,7 @@ To run the website locally, follow these steps:
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/marcusaureliusg/mtwedding
+git clone [https://github.com/marcusaureliusg/mtwedding](https://github.com/marcusaureliusg/mtwedding.git)
 ```
 
 2. **Install dependencies:**
