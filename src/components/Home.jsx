@@ -1,6 +1,35 @@
 // Home.jsx
-function Home() {
-    return <div>Welcome to our Wedding Website!</div>;
-  }
+import "./Home.css";
+import { Link } from "react-router-dom";
 
-  export default Home;
+function Home() {
+  return (
+    <div className="homebg">
+      <div className="bg-tint"></div>
+      <div className="hero-flex-wrap">
+        <div>
+          <div className="wrapper">
+            <div className="hero animated fadeInUp">
+              {" "}
+              <span className="hero__txt hero__txt--lrg">
+                Marcus and Taylor are getting married!
+              </span>{" "}
+              <span className="hero__txt hero__txt--sm">
+                June 8, 2024 · 4pm
+              </span>{" "}
+              <span className="hero__txt hero__txt--sm">Bozeman, Montana</span>
+            </div>
+            <span className="link-leader">
+              {" "}
+              <div className="navigation-links">
+                <Link to="/schedule">So whats the plan?</Link>
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Home;

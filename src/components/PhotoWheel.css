@@ -1,0 +1,147 @@
+.photo-wheel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Ensures that child absolute elements are positioned relative to this container */
+}
+
+.photo-wheel:focus {
+  outline: none; /* Removes the focus border/outline */
+}
+
+.photo-wheel img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+  max-height: 1350px;
+}
+
+.wheel-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+}
+
+.wheel-button img {
+  width: 50px;
+  height: auto;
+}
+
+.left-button {
+  left: 1%;
+}
+
+.right-button {
+  right: 1%;
+}
+
+.thumbnail-container-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.thumbnail-container {
+  display: flex;
+  padding: 10px;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+  overflow-x: auto;
+  justify-content: flex-start; /* Center items horizontally */
+  flex-wrap: nowrap; /* Prevents thumbnails from wrapping into multiple lines */
+  caret-color: transparent;
+}
+
+.thumbnail-container::-webkit-scrollbar {
+  display: none;
+}
+
+.thumbnail {
+  flex: none;
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: scale(0.95);
+}
+
+.thumbnail:hover,
+.thumbnail.active {
+  opacity: 1;
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 0.7rem #00000070);
+}
+
+.hover-area {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.hover-area:hover {
+  filter: drop-shadow(0 0 0.9rem #00000070);
+}
+
+.hover-area.left {
+  left: 0;
+}
+
+.hover-area.right {
+  right: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .thumbnail-container {
+    overflow-x: scroll;
+    justify-content: flex-start; /* Aligns items to the start on smaller screens */
+  }
+  .left-button,
+  .right-button {
+    display: none; /* Hide arrows on smaller screens */
+  }
+}
+
+@media (min-width: 2150px) {
+  .thumbnail-container {
+    justify-content: center; /* Align items to the start */
+  }
+}
+
+/* Additional styles */
+.wheel-button:hover {
+  filter: drop-shadow(0 0 0.9rem #8d1a0baa);
+}
+
+.hover-area::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  border-style: solid;
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.hover-area.left::before {
+  left: 10px;
+  border-width: 10px 15px 10px 0;
+  border-color: transparent #000000 transparent transparent;
+  transform: translateY(-50%);
+}
+
+.hover-area.right::before {
+  right: 10px;
+  border-width: 10px 0 10px 15px;
+  border-color: transparent transparent transparent #000000;
+  transform: translateY(-50%);
+}

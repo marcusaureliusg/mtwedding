@@ -1,0 +1,27 @@
+.questions-page {
+  max-width: 800px;
+  margin: auto;
+  padding:10px;
+}
+
+.questions-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.question-answer {
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.question-answer h2 {
+  font-weight: 500;
+  color: #333;
+}
+
+.question-answer p {
+  margin-top: 5px;
+  font-size: 18px;
+  color: #555;
+}
