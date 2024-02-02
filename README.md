@@ -28,7 +28,7 @@ This website is built using React and hosted on Firebase. It leverages Firebase 
 
 ## Prerequisites
 Before you begin, ensure you have installed the latest version of:
--Node.js https://nodejs.org/en
+--Node.js https://nodejs.org/en
 
 ## Running Locally
 
