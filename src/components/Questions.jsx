@@ -45,7 +45,7 @@ function Questions() {
     {
       question: "I got to Livingston before cocktail hour, what should I do?",
       answer:
-        "Feel free to go to The Attic early, but if you are not ready for a drink yet take a stroll along the Yellowstone River at Sacajawea Park. Alternatively you could check out Whiskey Creek Saloon below The Attic, The Owl(owned by groomsman Pat McCutcheon), and numerous other breweries and bars downtown! ",
+        "Feel free to go to The Attic early, but if you are not ready for a drink yet take a stroll along the Yellowstone River at Sacajawea Park. Alternatively you could check out Whiskey Creek Saloon below The Attic, The Owl(owned by groomsman Pat McCutcheon), and numerous other breweries/bars/shops downtown! ",
     },
     {
       question: "I have allergies- can I eat the reception food?",
