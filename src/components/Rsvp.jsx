@@ -145,7 +145,7 @@ const Rsvp = () => {
             <a href="mailto:hello@mtwedding24.com">hello@mtwedding24.com</a>
           </p>
           <p>
-            Alternatively, if snail mail is your thing - our postal address is;
+            If snail mail is your thing - our postal address is;
           </p>
           <p>
             9455 Big Gulch Drive
@@ -157,7 +157,7 @@ const Rsvp = () => {
         </section>
       </div>
       <div className="navigation-links">
-        <Link to="/questions">Also check the questions page</Link>
+        <Link to="/questions">Also check the Q&A page!</Link>
       </div>
     </>
   );
