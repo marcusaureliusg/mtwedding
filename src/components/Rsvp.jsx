@@ -89,7 +89,7 @@ const Rsvp = () => {
           <h2 className="section__header">RSVP</h2>
           <p>
             Once you receive your invitation in the post, we'd appreciate if you
-            could RSVP by <b>Wednesday, April 20th 2024</b> - to do so please fill
+            could RSVP by <b>Saturday, April 20th 2024</b> - to do so please fill
             out the RSVP form below, with the names from the invitation that are
             attending, your email, and your attendance preference.
           </p>
