@@ -98,6 +98,12 @@ function Questions() {
     },
     {
       question:
+        "What is the accessibility like at the ceremony and reception?",
+      answer:
+        "The ceremony is wheelchair accessible, with the caveat of grass and uneven ground. However, the reception space is located atop a flight of stairs. Please let us know if we can help with assistance.",
+    },
+    {
+      question:
         "I’m not feeling that well or was recently exposed to Covid, what should I do?",
       answer:
         "As much as we will miss celebrating with you, we ask that you please refrain from attending if you are sick.",
