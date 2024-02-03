@@ -33,7 +33,7 @@ function Schedule() {
       title: "Pre-dinner drinks",
       time: "6.00pm",
       description:
-        "Wet your whistle in the Livingston or head to the Attic and have some charcuterie while we say cheese.",
+        "Wet your whistle at the Attic and have some charcuterie while we finish up saying cheese.",
     },
     {
       iconSrc: dinner,
