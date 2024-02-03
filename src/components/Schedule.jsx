@@ -62,7 +62,7 @@ function Schedule() {
       iconSrc: music,
       iconAlt: "Music icon",
       title: "Tunes",
-      time: "10pm",
+      time: "9.30pm",
       description: "To the dancefloor - lets see your shapes! 💃",
     },
     {

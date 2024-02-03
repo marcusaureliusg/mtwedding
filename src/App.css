@@ -735,9 +735,29 @@ img {
   margin-bottom: 3rem;
   position: relative;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .bannerimg {
   animation: 25s ease-out 0s 1 zoomOutImg forwards; /* Apply the zoom-out animation */
+  width: 100%; /* Ensure the image covers the container */
+  display: block; /* Remove default inline styling */
+  opacity: 0; /* Initially hide the image */
+  transition: opacity 0.5s ease-in-out; /* Smooth transition for the image appearance */
+}
+
+/* Ensure the image takes up space even before it loads */
+.img-banner::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+
+/* Show the image once it's loaded */
+.bannerimg.loaded {
+  opacity: 1;
 }
 
 @keyframes zoomOutImg {

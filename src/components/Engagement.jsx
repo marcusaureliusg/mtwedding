@@ -54,6 +54,7 @@ function Engagement() {
             src={engagementPhoto}
             alt="Engagement Moment"
             className="engagement-photo"
+            loading="lazy"
           />
           <p>
             Marcus and Taylor landed on Kauai around midnight on December 9th,

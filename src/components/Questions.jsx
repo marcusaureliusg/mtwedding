@@ -59,7 +59,7 @@ function Questions() {
     {
       question: "What time should I arrive for the ceremony?",
       answer:
-        "To have ample time to park and be situated, please plan to arrive no later than 3:30pm",
+        "To have plenty of time to park and be situated, please plan to arrive no later than 3:30pm",
     },
     {
       question: "What is parking like at the ceremony?",

@@ -24,9 +24,6 @@ function Navigation() {
       <Button to="/questions" className="sidebar-toggle">
         Q & A
       </Button>
-      <Button to="/gallery" className="sidebar-toggle">
-        GALLERY
-      </Button>
     </div>
   );
 }

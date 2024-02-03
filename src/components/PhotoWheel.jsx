@@ -65,6 +65,7 @@ const PhotoWheel = ({ images }) => {
       <img
         src={images[currentImage]}
         alt={`Engagement photo ${currentImage + 1}`}
+        loading="lazy"
       />
       <div className="thumbnail-container-wrap">
         {!isMobile && (
@@ -82,6 +83,7 @@ const PhotoWheel = ({ images }) => {
               alt={`Thumbnail ${index + 1}`}
               onClick={() => handleThumbnailClick(index)}
               className={`thumbnail ${index === currentImage ? "active" : ""}`}
+              loading="lazy"
             />
           ))}
         </div>
