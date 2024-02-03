@@ -61,7 +61,7 @@ firebase deploy
 We welcome contributions from our friends and family! Whether it's a typo fix or a new feature, please feel free to make changes and submit a pull request.
 
 ## Credits
-Built with ♥ by Marcus and Taylor. Special thanks to everyone who helped make this site possible.
+Built with ♥ by Marcus and Taylor.
 
 ## Contact
 If you have any questions or suggestions, please email us at hello@mtwedding24.com
