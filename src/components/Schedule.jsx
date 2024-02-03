@@ -25,7 +25,7 @@ function Schedule() {
       title: "Ceremony",
       time: "4.00pm",
       description:
-        "Our wedding will be performed on the grounds of 155 Cobble Creek Rd",
+        "Our wedding will be performed on the grounds of 155 Cobble Creek Rd.",
     },
     {
       iconSrc: drinks,
