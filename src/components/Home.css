@@ -73,7 +73,6 @@
   background-image: url(../assets/IMG_4428.jpg);
   background-size: cover;
   background-position: center center;
-  background-repeat: no-repeat; /* Prevent repeating the background */
   min-height: 100vh !important;
   width: 100%;
   animation: 18s ease-out 0s 1 zoomOut forwards; /* Apply the zoom-out animation */

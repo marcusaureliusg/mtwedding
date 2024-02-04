@@ -20,7 +20,8 @@ const CommandInput = ({ onEnter }) => {
       <span>&gt;:</span>
       <div className="blinking-cursor"></div>
       <input
-        type="number"
+        type="text"
+        pattern="/^[0-9\s]*$/"
         value={inputValue}
         onChange={handleInputChange}
         onKeyPress={handleKeyPress}
