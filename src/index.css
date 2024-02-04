@@ -19,7 +19,8 @@
   min-height: 100vh;
 }
 
-body, html {
+body,
+html {
   overflow-x: hidden;
 }
 
@@ -145,7 +146,8 @@ input {
 }
 
 .footer-text {
-  margin-left: 1rem;
+  margin-left: 0.5rem;
+  font-size: small;
 }
 
 .footer-widgets {
@@ -167,11 +169,10 @@ input[type="number"] {
 *,
 *::before,
 *::after {
-  box-sizing: border-box; /* 1 */
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
-  /* 6 */
   .footer-container {
     flex-direction: row;
   }
