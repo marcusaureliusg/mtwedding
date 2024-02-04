@@ -180,7 +180,7 @@ input[type="number"] {
   .footer-widgets,
   .flip-timer,
   .input-prompt {
-    max-width: 100%;
+    max-width: 80%;
   }
 
   .footer-text,

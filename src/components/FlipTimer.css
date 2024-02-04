@@ -16,8 +16,8 @@
 
 .flip-card-inner {
   position: relative;
-  width: 20px;
-  height: 30px;
+  width: 15px;
+  height: 25px;
   text-align: center;
   transform-style: preserve-3d; /* Preserve 3D during rotation */
   transition: transform 0.5s; /* Speed up the flip */
