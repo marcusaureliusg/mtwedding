@@ -5,12 +5,26 @@
 
   color-scheme: light only;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #f8f8ff;
+  background-color: #f9f9f9;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  min-height: 100vh;
+}
+
+body, html {
+  overflow-x: hidden;
+}
+
+.wrapper {
+  flex: 1; /* Takes up all available space, pushing the footer down */
 }
 
 @font-face {
@@ -88,8 +102,8 @@ body {
   font-kerning: normal;
   margin: 0;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 body {
@@ -97,6 +111,7 @@ body {
   font-weight: 300;
   letter-spacing: 0.01em;
   line-height: 1.6;
+  height: 100%;
 }
 
 html {
@@ -104,7 +119,7 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
   caret-color: transparent;
-  background-color: #f8f8ff;
+  background-color: #f9f9f9;
 }
 
 input {
@@ -121,8 +136,12 @@ input {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
   background-color: #f9f9f9; /* Adjust the color to match your site's theme */
+  width: 100vw; /* Set the footer to the viewport width */
+  position: relative; /* Fix position to the bottom */
+  bottom: 0; /* Align to the bottom */
+  left: 0; /* Align to the left */
+  overflow: hidden; /* Hide overflow */
 }
 
 .footer-text {
@@ -132,6 +151,7 @@ input {
 .footer-widgets {
   display: flex;
   align-items: center;
+  overflow-x: auto;
 }
 
 input::-webkit-outer-spin-button,
@@ -142,4 +162,50 @@ input::-webkit-inner-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* 1 */
+}
+
+@media (max-width: 768px) {
+  /* 6 */
+  .footer-container {
+    flex-direction: row;
+  }
+
+  .footer-widgets,
+  .flip-timer,
+  .input-prompt {
+    max-width: 100%;
+  }
+
+  .footer-text,
+  .footer-widgets {
+    text-align: center;
+  }
+
+  .flip-timer-row,
+  .input-prompt {
+    width: 100%;
+    justify-content: center;
+    margin: 0.5rem 0;
+  }
+
+  .input-prompt {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .flip-card {
+    width: 15px; /* Adjust the size of the cards for smaller screens */
+    height: 25px;
+  }
+
+  .flip-card-inner {
+    width: 15px; /* Adjust dimensions as necessary */
+    height: 25px;
+  }
 }

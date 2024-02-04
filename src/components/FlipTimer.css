@@ -6,6 +6,7 @@
 
 .flip-timer-row {
   display: flex;
+  flex-wrap: nowrap;
 }
 
 .flip-card {
