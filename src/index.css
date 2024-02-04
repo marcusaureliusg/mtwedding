@@ -190,14 +190,13 @@ input[type="number"] {
 
   .flip-timer-row,
   .input-prompt {
-    width: 100%;
     justify-content: center;
     margin: 0.5rem 0;
   }
 
   .input-prompt {
     min-width: unset;
-    width: 100%;
+    width: 150px;
   }
 
   .flip-card {
