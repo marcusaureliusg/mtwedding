@@ -1,0 +1,49 @@
+/* Input Prompt */
+.input-prompt {
+  background: black;
+  color: lime;
+  font-family: "Consolas", monospace;
+  padding: 3px;
+  display: inline-block;
+  margin-right: 3px;
+  margin-top: 1px;
+  opacity: 0;
+  max-height: 100%;
+}
+
+.input-prompt input {
+  background: black;
+  color: lime;
+  font-family: "Consolas", monospace;
+  padding: 1px;
+  display: inline-block;
+  cursor: url("../assets/rectangle.png");
+}
+
+.input-prompt input:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+
+.blinking-cursor {
+  display: inline-block;
+  background-color: lime;
+  margin-left: 5px;
+  animation: blinking 1s infinite;
+}
+
+@keyframes blinking {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.input-prompt:hover,
+.input-prompt:focus {
+  opacity: 100;
+}

@@ -114,5 +114,32 @@ input {
 
 .footer {
   font-size: small;
-  margin-bottom: 0;
+  margin-bottom: 2em;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f9f9f9; /* Adjust the color to match your site's theme */
+}
+
+.footer-text {
+  margin-left: 1rem;
+}
+
+.footer-widgets {
+  display: flex;
+  align-items: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }

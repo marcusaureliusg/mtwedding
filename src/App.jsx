@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import { useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebaseConfig";
@@ -32,7 +37,14 @@ function App() {
 
   const ProtectedRoute = ({ children }) => {
     if (isLoading) {
-      return <div className="login-container homebg"><div>Loading...</div></div>;
+      return (
+        <div className="loading-container homebg">
+          <div>
+            <div className="spinner"></div>
+            <div className="loading-text">Loading...</div>
+          </div>
+        </div>
+      );
     }
     if (!isLoggedIn) {
       return <Navigate to="/login" />;
@@ -42,7 +54,12 @@ function App() {
 
   const routes = [
     { path: "/", Component: Home, protected: true },
-    { path: "/login", Component: Login, protected: false, props: { onLogin: handleLoginSuccess } },
+    {
+      path: "/login",
+      Component: Login,
+      protected: false,
+      props: { onLogin: handleLoginSuccess },
+    },
     { path: "/gallery", Component: Gallery, protected: true },
     { path: "/map", Component: GuestMap, protected: true },
     { path: "/location", Component: Location, protected: true },
@@ -57,13 +74,23 @@ function App() {
     <Router>
       <Navigation />
       <Routes>
-        {routes.map(({ path, Component, protected: isProtected, props = {} }, index) => (
-          <Route key={index} path={path} element={
-            isProtected ?
-              <ProtectedRoute><Component {...props} /></ProtectedRoute> :
-              <Component {...props} />
-          } />
-        ))}
+        {routes.map(
+          ({ path, Component, protected: isProtected, props = {} }, index) => (
+            <Route
+              key={index}
+              path={path}
+              element={
+                isProtected ? (
+                  <ProtectedRoute>
+                    <Component {...props} />
+                  </ProtectedRoute>
+                ) : (
+                  <Component {...props} />
+                )
+              }
+            />
+          )
+        )}
       </Routes>
     </Router>
   );
