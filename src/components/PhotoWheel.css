@@ -104,7 +104,7 @@
   .thumbnail-container {
     overflow-x: scroll;
     justify-content: flex-start; /* Aligns items to the start on smaller screens */
-  }
+  },
   .hover-area {
     opacity: 0;
   }
