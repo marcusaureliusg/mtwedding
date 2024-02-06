@@ -89,9 +89,9 @@ const Rsvp = () => {
           <h2 className="section__header">RSVP</h2>
           <p>
             Once you receive your invitation in the post, we'd appreciate if you
-            could RSVP by <b>Saturday, April 20th 2024</b> - to do so please fill
-            out the RSVP form below, with the names from the invitation that are
-            attending, your email, and your attendance preference.
+            could RSVP by <b>Saturday, April 20th 2024</b> - to do so please
+            fill out the RSVP form below, with the names from the invitation
+            that are attending, your email, and your attendance preference.
           </p>
           {submitStatus && <p className="submit-status">{submitStatus}</p>}
           <form onSubmit={handleSubmit}>
@@ -144,9 +144,7 @@ const Rsvp = () => {
             hesitate to pop an email to:{" "}
             <a href="mailto:hello@mtwedding24.com">hello@mtwedding24.com</a>
           </p>
-          <p>
-            If snail mail is your thing - our postal address is;
-          </p>
+          <p>If snail mail is your thing - our postal address is;</p>
           <p>
             9455 Big Gulch Drive
             <br />
@@ -155,9 +153,9 @@ const Rsvp = () => {
             59715
           </p>
         </section>
-      </div>
-      <div className="navigation-links">
-        <Link to="/questions">Also check the Q&A page!</Link>
+        <div className="navigation-links">
+          <Link to="/questions">Also check the Q&A page!</Link>
+        </div>
       </div>
     </>
   );
