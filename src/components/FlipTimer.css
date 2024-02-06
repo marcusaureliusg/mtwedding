@@ -71,7 +71,7 @@
   transform: rotateX(180deg);
 }
 
-.flip-animate .flip-card-inner::after {
+.flip-animate.flip-card-inner::after {
   content: "";
   position: absolute;
   left: 0;

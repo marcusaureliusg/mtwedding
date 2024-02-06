@@ -23,7 +23,7 @@ function Schedule() {
       iconSrc: ceremony,
       iconAlt: "Ceremony icon",
       title: "Ceremony",
-      time: "4.00pm",
+      time: "3.30pm",
       description:
         "Our wedding will be performed on the grounds of 155 Cobble Creek Rd.",
     },

@@ -64,7 +64,7 @@ function Questions() {
     {
       question: "What time should I arrive for the ceremony?",
       answer:
-        "To have plenty of time to park and be situated, please plan to arrive no later than 3:30pm",
+        "To have plenty of time to park and be situated, please plan to arrive no later than 3.00pm",
     },
     {
       question: "What is parking like at the ceremony?",
@@ -97,8 +97,7 @@ function Questions() {
         "After the ceremony, the immediate family of the couple will be taking pictures for about 1 hour. Guests can drive over to the reception where snacks and drinks will be flowing. Dinner will be served around 7 pm, with dancing to follow.",
     },
     {
-      question:
-        "What is the accessibility like at the ceremony and reception?",
+      question: "What is the accessibility like at the ceremony and reception?",
       answer:
         "The ceremony is wheelchair accessible, with the caveat of grass and uneven ground. However, the reception space is located atop a flight of stairs. Please let us know if we can help with assistance.",
     },

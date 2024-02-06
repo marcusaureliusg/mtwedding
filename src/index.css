@@ -191,7 +191,6 @@ input[type="number"] {
   .flip-timer-row,
   .input-prompt {
     justify-content: center;
-    margin: 0.5rem 0;
   }
 
   .input-prompt {

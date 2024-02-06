@@ -42,7 +42,7 @@ function Accomodations() {
               imageSrc={bzn}
               imageAlt="Bozeman, Montana"
               contactDetails={[
-                "Our ceremony will grace the picturesque town of Bozeman, known for its breathtaking landscapes and rich cultural ambiance. We invite you to explore and enjoy Bozeman's charm by choosing from a wide array of accommodations. Whether you prefer the unique experience of an Airbnb, the intimate setting of a bed and breakfast, or the luxury of a high-end hotel, Bozeman offers perfect options to suit every taste, ensuring your stay enriches your experience of our special day.",
+                "Our ceremony will be held in the picturesque town of Bozeman, known for its gorgeous landscapes and variety of outdoor activities. We invite you to explore and enjoy Bozeman's charm by choosing from a wide array of accommodations. Whether you prefer the unique experience of an Airbnb, the intimate setting of a bed and breakfast, or the luxury of a high-end hotel, Bozeman offers perfect options to suit every taste, ensuring your stay enriches your experience of our special day. Bozeman Airport is located approximately 20 minutes from town.",
               ]}
               contactLink={[
                 { type: "phone", address: "+1 (406) 937 9466" },
@@ -54,7 +54,7 @@ function Accomodations() {
               imageSrc={images}
               imageAlt="Livingston, Montana - Downtown Exterior Shot"
               contactDetails={[
-                "As the night draws in, we'll move to the lively town of Livingston for our reception, which we expect to continue until the early hours of 2 AM. If your accommodations begin in Bozeman, we recommend considering a transition to lodging in Livingston for the night. A brief 30-minute drive from Bozeman, Livingston boasts a variety of lodging choices, including quaint Airbnbs, cozy inns, and elegant hotels. Staying in Livingston ensures you're right at the heart of the celebration and safely nestled in for the night after the party winds down.",
+                "As the night draws in, we'll move to the lively town of Livingston for our reception, which we expect to continue until the early hours of 2 AM. If your accommodations begin in Bozeman, we recommend considering a transition to lodging in Livingston for the night. A brief 30-minute drive from Bozeman, Livingston boasts a variety of lodging choices, including quaint Airbnbs, cozy inns, and convenient hotels. Staying in Livingston ensures you're right at the heart of the celebration and safely nestled in for the night after the party winds down.",
               ]}
               contactLink={[
                 { type: "phone", address: "+1 (406) 222-1350" },

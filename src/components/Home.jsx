@@ -15,7 +15,7 @@ function Home() {
                 Marcus and Taylor are getting married!
               </span>{" "}
               <span className="hero__txt hero__txt--sm">
-                June 8, 2024 · 4pm
+                June 8, 2024 · 3.30pm
               </span>{" "}
               <span className="hero__txt hero__txt--sm">Bozeman, Montana</span>
             </div>

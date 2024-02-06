@@ -20,6 +20,7 @@
   display: inline-block;
   cursor: url("../assets/rectangle.png");
   width: 85%;
+  font-size: small;
 }
 
 .input-prompt input:focus-visible {
