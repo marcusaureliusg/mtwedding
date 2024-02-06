@@ -42,7 +42,7 @@ function Accomodations() {
               imageSrc={bzn}
               imageAlt="Bozeman, Montana"
               contactDetails={[
-                "Our ceremony will grace the picturesque town of Bozeman, known for its breathtaking landscapes and rich cultural ambiance. We invite you to explore and enjoy Bozeman's charm by choosing from a wide array of accommodations. Whether you prefer the unique experience of an Airbnb, the intimate setting of a bed and breakfast, or the luxury of a high-end hotel, Bozeman offers perfect options to suit every taste, ensuring your stay enriches your experience of our special day.",
+                "Our ceremony will be located in the town of Bozeman, known for its breathtaking landscapes and rich cultural ambiance. We invite you to explore and enjoy Bozeman's charm by choosing from a wide array of accommodations. Whether you prefer the unique experience of an Airbnb, the intimate setting of a bed and breakfast, or the luxury of a high-end hotel, Bozeman offers perfect options to suit every taste, ensuring your stay enriches your experience of our special day.",
               ]}
               contactLink={[
                 { type: "phone", address: "+1 (406) 937 9466" },
