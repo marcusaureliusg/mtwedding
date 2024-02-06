@@ -68,7 +68,7 @@ const PhotoWheel = ({ images }) => {
         loading="lazy"
       />
       <div className="thumbnail-container-wrap">
-        {!isMobile && (
+        {(
           <div
             className="hover-area left"
             onMouseOver={() => startScrolling(-1)}
@@ -87,7 +87,7 @@ const PhotoWheel = ({ images }) => {
             />
           ))}
         </div>
-        {!isMobile && (
+        {(
           <div
             className="hover-area right"
             onMouseOver={() => startScrolling(1)}
