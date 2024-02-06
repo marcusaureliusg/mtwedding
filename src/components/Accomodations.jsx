@@ -42,7 +42,7 @@ function Accomodations() {
               imageSrc={bzn}
               imageAlt="Bozeman, Montana"
               contactDetails={[
-                "Our ceremony will be held in the picturesque town of Bozeman, known for its gorgeous landscapes and variety of outdoor activities. We invite you to explore and enjoy Bozeman's charm by choosing from a wide array of accommodations. Whether you prefer the unique experience of an Airbnb, the intimate setting of a bed and breakfast, or the luxury of a high-end hotel, Bozeman offers perfect options to suit every taste, ensuring your stay enriches your experience of our special day. Bozeman Airport is located approximately 20 minutes from town.",
+                "Our ceremony will be held in the town of Bozeman, known for its gorgeous landscapes and variety of outdoor activities. We invite you to explore and enjoy Bozeman's charm by choosing from a wide array of accommodations. Whether you prefer the unique experience of an Airbnb, the intimate setting of a bed and breakfast, or the luxury of a high-end hotel, Bozeman offers perfect options to suit every taste, ensuring your stay enriches your experience of our special day. Bozeman Airport is located approximately 20 minutes from town.",
               ]}
               contactLink={[
                 { type: "phone", address: "+1 (406) 937 9466" },
