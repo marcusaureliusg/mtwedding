@@ -71,7 +71,7 @@ const PhotoWheel = ({ images }) => {
         {(
           <div
             className="hover-area left"
-            onMouseOver={() => startScrolling(-1)}
+            onMouseOver={!isMobile && () => startScrolling(-1)}
             onMouseOut={stopScrolling}
           />
         )}
@@ -90,7 +90,7 @@ const PhotoWheel = ({ images }) => {
         {(
           <div
             className="hover-area right"
-            onMouseOver={() => startScrolling(1)}
+            onMouseOver={!isMobile && () => startScrolling(1)}
             onMouseOut={stopScrolling}
           />
         )}
