@@ -41,6 +41,7 @@ const PhotoWheel = ({ images }) => {
   };
 
   const startScrolling = (direction) => {
+    isMobile && return;
     stopScrolling(); // Stop any existing scrolling
     scrollIntervalRef.current = setInterval(() => {
       if (thumbnailContainerRef.current) {
@@ -71,7 +72,7 @@ const PhotoWheel = ({ images }) => {
         {(
           <div
             className="hover-area left"
-            onMouseOver={!isMobile && () => startScrolling(-1)}
+            onMouseOver={() => startScrolling(-1)}
             onMouseOut={stopScrolling}
           />
         )}
@@ -90,7 +91,7 @@ const PhotoWheel = ({ images }) => {
         {(
           <div
             className="hover-area right"
-            onMouseOver={!isMobile && () => startScrolling(1)}
+            onMouseOver={() => startScrolling(1)}
             onMouseOut={stopScrolling}
           />
         )}
