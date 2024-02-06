@@ -104,9 +104,10 @@
   .thumbnail-container {
     overflow-x: scroll;
     justify-content: flex-start; /* Aligns items to the start on smaller screens */
-  },
-  .hover-area {
-    opacity: 0;
+  }
+  .left-button,
+  .right-button {
+    display: none; /* Hide arrows on smaller screens */
   }
 }
 
