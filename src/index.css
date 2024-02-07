@@ -155,9 +155,9 @@ input {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  padding-right: 2rem; /* Adjust padding to prevent content from hiding under the scrollbar */
+  padding-right: 20px; /* Adjust padding to prevent content from hiding under the scrollbar */
   max-width: calc(
-    100% - 2rem
+    100% - 20px
   ); /* Adjust max-width to account for padding and potential scrollbar */
   overflow-x: hidden;
 }
@@ -181,7 +181,8 @@ input[type="number"] {
 @media (max-width: 768px) {
   .footer-widgets {
     margin-right: 0px;
-    max-width: calc(100% - 20px);
+    padding-right: 0px;
+    max-width: 100%;
   }
 
   .footer-container {

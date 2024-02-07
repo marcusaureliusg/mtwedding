@@ -6,7 +6,9 @@
 
 .flip-timer-row {
   display: flex;
+  justify-content: center;
   flex-wrap: nowrap;
+  align-items: center;
 }
 
 .flip-card {
@@ -21,6 +23,7 @@
   text-align: center;
   transform-style: preserve-3d; /* Preserve 3D during rotation */
   transition: transform 0.5s; /* Speed up the flip */
+  overflow: hidden;
 }
 
 .flip-card-front,
@@ -133,4 +136,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 15px;
+  height: 25px;
 }
