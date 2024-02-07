@@ -845,14 +845,13 @@ img {
 }
 
 .spinner {
-  border: 4px solid rgba(255, 255, 255, 0.2);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border-top-color: #9b4dca;
+  width: 200px; /* Adjust size as needed */
+  height: 200px; /* Adjust size as needed */
+  background-image: url("../src/assets/icons/ceremony.svg"); /* Adjust path as needed */
   animation: spinY 1s ease-in-out infinite;
   margin: auto;
   display: block;
+  background-size: cover;
 }
 
 @keyframes spinY {
@@ -874,7 +873,25 @@ img {
 
 .loading-text {
   color: #fff;
-  font-size: 18px;
-  margin-top: 10px;
+  font-size: larger;
+  margin-top: 1px;
   text-align: center;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
 }

@@ -24,7 +24,7 @@ function Location() {
         classes={banner2Config.classes}
         src={banner2Config.src}
       />
-      <div className="wrapper" id="location">
+      <div className="wrapper no-padding-bottom" id="location">
         <LocationSection
           title="Ceremony"
           description="Our wedding ceremony will take place at the picturesque home of Kate and Monte Beck, situated in the heart of Bozeman's southern landscape. This scenic location features the tranquil Limestone Creek, a large pond, and a beautiful grove of aspen trees, with the Gallatin mountains as our backdrop. We are thrilled to celebrate this momentous day with you all!"

@@ -137,12 +137,12 @@ input {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f9f9f9; /* Adjust the color to match your site's theme */
-  width: 100vw; /* Set the footer to the viewport width */
+  background-color: #f9f9f9;
+  width: 100vw;
   position: relative; /* Fix position to the bottom */
   bottom: 0; /* Align to the bottom */
   left: 0; /* Align to the left */
-  overflow: hidden; /* Hide overflow */
+  overflow: hidden;
 }
 
 .footer-text {
@@ -153,7 +153,13 @@ input {
 .footer-widgets {
   display: flex;
   align-items: center;
-  overflow-x: auto;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-right: 2rem; /* Adjust padding to prevent content from hiding under the scrollbar */
+  max-width: calc(
+    100% - 2rem
+  ); /* Adjust max-width to account for padding and potential scrollbar */
+  overflow-x: hidden;
 }
 
 input::-webkit-outer-spin-button,
@@ -173,6 +179,11 @@ input[type="number"] {
 }
 
 @media (max-width: 768px) {
+  .footer-widgets {
+    margin-right: 0px;
+    max-width: calc(100% - 20px);
+  }
+
   .footer-container {
     flex-direction: row;
   }
@@ -204,7 +215,7 @@ input[type="number"] {
   }
 
   .flip-card-inner {
-    width: 15px; /* Adjust dimensions as necessary */
+    width: 15px;
     height: 25px;
   }
 }

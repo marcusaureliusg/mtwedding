@@ -85,6 +85,9 @@
   width: 50px;
   z-index: 10;
   background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  margin: auto;
+  height: 70%;
 }
 
 .hover-area:hover {
@@ -133,15 +136,15 @@
 }
 
 .hover-area.left::before {
-  left: 10px;
-  border-width: 10px 15px 10px 0;
+  left: 14px;
+  border-width: 8px 13px 8px 0;
   border-color: transparent #000000 transparent transparent;
   transform: translateY(-50%);
 }
 
 .hover-area.right::before {
-  right: 10px;
-  border-width: 10px 0 10px 15px;
+  right: 14px;
+  border-width: 8px 0 8px 13px;
   border-color: transparent transparent transparent #000000;
   transform: translateY(-50%);
 }

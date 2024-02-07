@@ -12,8 +12,16 @@ const RootComponent = () => {
     // If the command matches, set customMinutes and useCustomMinutes to trigger the countdown
     if (command === "4 8 15 16 23 42") {
       console.log("Abort Sequence");
-      setCustomMinutes(108); // Set custom minutes as per your requirement
-      setUseCustomMinutes(true); // Enable custom minutes mode
+      setCustomMinutes(108);
+      setUseCustomMinutes(true);
+    }
+    if (command === "7946 0893") {
+      console.log("I've always loved you");
+    }
+    if (command === "001") {
+      console.log("test");
+      setCustomMinutes(1);
+      setUseCustomMinutes(true);
     }
   };
 

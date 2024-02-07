@@ -62,40 +62,40 @@ const PhotoWheel = ({ images }) => {
 
   return (
     <div className="photo-wheel" tabIndex="0" onKeyDown={handleKeyPress}>
-      <img
-        src={images[currentImage]}
-        alt={`Engagement photo ${currentImage + 1}`}
-        loading="lazy"
+    <img
+      src={images[currentImage]}
+      alt={`Engagement photo ${currentImage + 1}`}
+      loading="lazy"
+    />
+    <div className="thumbnail-container-wrap">
+      <div
+        className="hover-area left"
+        onMouseOver={() => startScrolling(-1)}
+        onMouseOut={stopScrolling}
+        onTouchStart={() => startScrolling(-1)}
+        onTouchEnd={stopScrolling}
       />
-      <div className="thumbnail-container-wrap">
-        {!isMobile && (
-          <div
-            className="hover-area left"
-            onMouseOver={() => startScrolling(-1)}
-            onMouseOut={stopScrolling}
+      <div className="thumbnail-container" ref={thumbnailContainerRef}>
+        {images.map((img, index) => (
+          <img
+            key={index}
+            src={img}
+            alt={`Thumbnail ${index + 1}`}
+            onClick={() => handleThumbnailClick(index)}
+            className={`thumbnail ${index === currentImage ? "active" : ""}`}
+            loading="lazy"
           />
-        )}
-        <div className="thumbnail-container" ref={thumbnailContainerRef}>
-          {images.map((img, index) => (
-            <img
-              key={index}
-              src={img}
-              alt={`Thumbnail ${index + 1}`}
-              onClick={() => handleThumbnailClick(index)}
-              className={`thumbnail ${index === currentImage ? "active" : ""}`}
-              loading="lazy"
-            />
-          ))}
-        </div>
-        {!isMobile && (
-          <div
-            className="hover-area right"
-            onMouseOver={() => startScrolling(1)}
-            onMouseOut={stopScrolling}
-          />
-        )}
+        ))}
       </div>
+      <div
+        className="hover-area right"
+        onMouseOver={() => startScrolling(1)}
+        onMouseOut={stopScrolling}
+        onTouchStart={() => startScrolling(1)}
+        onTouchEnd={stopScrolling}
+      />
     </div>
+  </div>
   );
 };
 

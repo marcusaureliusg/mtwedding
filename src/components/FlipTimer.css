@@ -107,3 +107,30 @@
 .flip-animate .flip-card-back {
   animation: flipToBack 0.5s forwards;
 }
+
+.flip-card.completed.minutes-digit-0 .flip-card-inner {
+  background-image: url("../assets/icons/04.png");
+}
+
+.flip-card.completed.minutes-digit-1 .flip-card-inner {
+  background-image: url("../assets/icons/03.png");
+}
+.flip-card.completed.minutes-digit-2 .flip-card-inner {
+  background-image: url("../assets/icons/02.png");
+}
+
+.flip-card.completed.seconds-digit-0 .flip-card-inner {
+  background-image: url("../assets/icons/01.png");
+}
+
+.flip-card.completed.seconds-digit-1 .flip-card-inner {
+  background-image: url("../assets/icons/00.png");
+}
+
+.flip-card.completed .flip-card-inner {
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
