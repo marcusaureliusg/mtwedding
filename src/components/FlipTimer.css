@@ -14,6 +14,11 @@
 .flip-card {
   margin: 0 1px;
   perspective: 1000px; /* Allows for 3D rotation */
+  transition: box-shadow 0.5s; /* Smooth transition for shadow */
+}
+
+.flip-card .flip-animate {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow appears during flip */
 }
 
 .flip-card-inner {

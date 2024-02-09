@@ -2,57 +2,94 @@ import { useEffect, useState, useRef } from "react";
 import "./FlipTimer.css";
 import Modal from "./Modal";
 
-const FlipTimer = ({ targetDate, customMinutes }) => {
+const FlipTimer = ({ targetDate, customMinutes, playAudio, stopAudio }) => {
   const prevDigitsRef = useRef({ minutes: [], seconds: [] });
   const [timeLeft, setTimeLeft] = useState({ minutes: "000", seconds: "00" });
   const [isCompleted, setIsCompleted] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const countdownEndTime = useRef(new Date());
 
-  // Function to update the countdown end time
+  // Function to update the countdown end time, potentially blocking reset based on current time left
   const updateCountdownEndTime = () => {
-    countdownEndTime.current =
-      customMinutes !== undefined
-        ? new Date(new Date().getTime() + customMinutes * 60000)
-        : targetDate
-        ? new Date(targetDate)
-        : new Date();
-  };
+    const currentTime = new Date();
+    const targetTime = targetDate
+      ? new Date(targetDate)
+      : new Date(currentTime.getTime() + customMinutes * 60000);
+    const timeDifference = targetTime.getTime() - currentTime.getTime();
+    const totalMinutesLeft = Math.floor(timeDifference / (1000 * 60));
 
-  // Function to calculate time left
-  const calculateTimeLeft = () => {
-    if (isCompleted) return timeLeft;
-
-    const difference =
-      countdownEndTime.current.getTime() - new Date().getTime();
-    if (difference <= 0) {
-      setIsCompleted(true);
-      setModalOpen(true);
-      return { minutes: "000", seconds: "00" };
+    // Block reset if currently between 4 and 108 minutes, otherwise proceed with update
+    if (
+      !(totalMinutesLeft > 4 && totalMinutesLeft < 108 && customMinutes === 108)
+    ) {
+      countdownEndTime.current = targetTime;
+    } else {
+      console.log("Reset blocked due to current time constraints.");
     }
-
-    const minutes = Math.floor(difference / (1000 * 60))
-      .toString()
-      .padStart(3, "0");
-    const seconds = Math.floor((difference / 1000) % 60)
-      .toString()
-      .padStart(2, "0");
-    return { minutes, seconds };
   };
 
-  // Effect to initialize or update the countdown
   useEffect(() => {
-    updateCountdownEndTime(); // Update end time based on current props
-    setTimeLeft(calculateTimeLeft()); // Update time left immediately
+    setIsCompleted(false); // Reset completion state
+    setTimeLeft({ minutes: "000", seconds: "00" }); // Reset time left
+    updateCountdownEndTime();
+    stopAudio && stopAudio();
+  }, [customMinutes, targetDate]);
+
+  // Calculate time left
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const difference =
+        countdownEndTime.current.getTime() - new Date().getTime();
+      if (difference <= 0) {
+        // Avoid setting isCompleted here to prevent loop
+        return { minutes: "000", seconds: "00" };
+      }
+      return {
+        minutes: Math.floor(difference / (1000 * 60))
+          .toString()
+          .padStart(3, "0"),
+        seconds: Math.floor((difference / 1000) % 60)
+          .toString()
+          .padStart(2, "0"),
+      };
+    };
 
     const interval = setInterval(() => {
-      if (!isCompleted) {
-        setTimeLeft(calculateTimeLeft()); // Recalculate time left every second
+      const newTimeLeft = calculateTimeLeft();
+      setTimeLeft(newTimeLeft);
+
+      // Check for completion here and update state accordingly
+      if (newTimeLeft.minutes === "000" && newTimeLeft.seconds === "00") {
+        console.log("set complete");
+        setIsCompleted(true);
+        clearInterval(interval); // Make sure to clear this interval to prevent further updates
       }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [customMinutes, targetDate, isCompleted]);
+  }, []); // Removed isCompleted from dependency array to prevent re-triggering
+
+  useEffect(() => {
+    if (isCompleted) {
+      setTimeout(() => {
+        setModalOpen(true);
+      }, 2000);
+    }
+  }, [isCompleted]); // Depend only on isCompleted
+
+  // Trigger audio play at 4-minute mark
+  useEffect(() => {
+    const totalSeconds =
+      parseInt(timeLeft.minutes) * 60 + parseInt(timeLeft.seconds);
+    if (totalSeconds === 240 && !isCompleted) {
+      playAudio();
+    }
+  }, [timeLeft, isCompleted, playAudio]);
+
+  // Close modal and reset audio
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   useEffect(() => {
     // Trigger animations only if not completed
@@ -98,9 +135,14 @@ const FlipTimer = ({ targetDate, customMinutes }) => {
       </div>
     ));
 
-  const closeModal = () => {
-    setModalOpen(false);
-  };
+  if (modalOpen) {
+    setTimeout(() => {
+      const iframe = document.getElementById("weHaveToGoBack");
+      if (iframe) {
+        iframe.src += "&autoplay=1"; // Appends autoplay parameter to existing src
+      }
+    }, 4000); // Adjust the timeout to match your fade-in animation duration
+  }
 
   return (
     <>
@@ -111,15 +153,18 @@ const FlipTimer = ({ targetDate, customMinutes }) => {
       {isCompleted && (
         <Modal showModal={modalOpen} onClose={closeModal}>
           <iframe
+            id="weHaveToGoBack"
             width="560"
             height="315"
-            src="https://www.youtube.com/embed/0Q14rHLvMco?start=43&autoplay=1"
+            src="https://www.youtube.com/embed/0Q14rHLvMco?start=0"
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>
-          <h2>We have to go back...to Kauai!!! Stay tuned</h2>
+          <h2 className="go-back-modal">
+            We have to go back...to Kauai!!! Stay tuned
+          </h2>
         </Modal>
       )}
     </>

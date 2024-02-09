@@ -1,13 +1,15 @@
 // Modal.jsx
-const Modal = ({ showModal, onClose, children }) => {
+const Modal = ({ showModal, onClose, children, isSlim = false }) => {
   console.log("modal", showModal);
   if (!showModal) return null;
+  const backDropClass = isSlim ? "modal-backdrop-slim" : "modal-backdrop";
+  const contentClass = isSlim ? "modal-content-slim" : "modal-content";
 
   return (
-    <div className="modal-backdrop" onClick={onClose}>
+    <div className={backDropClass} onClick={onClose}>
       {" "}
       {/* Added onClick here for backdrop close */}
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div className={contentClass} onClick={(e) => e.stopPropagation()}>
         {" "}
         {/* Stop click propagation */}
         {children}
