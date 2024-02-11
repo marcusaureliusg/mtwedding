@@ -73,19 +73,9 @@
   background-image: url(../assets/IMG_4428.jpg);
   background-size: cover;
   background-position: center center;
-  min-height: 100vh !important;
+  min-height: 100vh;
   width: 100%;
-  animation: 18s ease-out 0s 1 zoomOut forwards; /* Apply the zoom-out animation */
-  margin-top: 0.5rem;
-}
-
-@keyframes zoomOut {
-  from {
-    background-size: 150%; /* Starting zoomed in */
-  }
-  to {
-    background-size: 110%; /* Zoom out to normal size */
-  }
+  background-repeat: no-repeat;
 }
 
 /* For Mobile Devices */
@@ -104,4 +94,8 @@
       background-size: 110%;
     }
   }
+}
+
+.navigation-links.home-link a {
+  color: #c361ff;
 }

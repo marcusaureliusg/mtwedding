@@ -1,6 +1,5 @@
 // Modal.jsx
 const Modal = ({ showModal, onClose, children, isSlim = false }) => {
-  console.log("modal", showModal);
   if (!showModal) return null;
   const backDropClass = isSlim ? "modal-backdrop-slim" : "modal-backdrop";
   const contentClass = isSlim ? "modal-content-slim" : "modal-content";

@@ -79,7 +79,7 @@ a:before {
 }
 
 a:not(.button):hover {
-  color: #9b4dca;
+  color: #c361ff;
 }
 
 a:not(.button):focus {
@@ -92,7 +92,7 @@ a:not(.button):focus {
 }
 
 button:hover {
-  color: #9b4dca;
+  color: #c361ff;
 }
 
 button:hover:before {
@@ -130,7 +130,7 @@ button:focus-visible {
 }
 
 a:not(.button):hover {
-  color: #9b4dca;
+  color: #c361ff;
 }
 
 .link-leader a {
