@@ -69,7 +69,7 @@ a:before {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #9b4dca;
+  background-color: #c361ff;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   -ms-transform: scaleX(0);
@@ -165,8 +165,10 @@ a:not(.button):hover {
   padding-top: 2rem;
 }
 
-@media (min-width: 40rem) h2 {
-  font-size: 4.2rem;
+@media (min-width: 40rem) {
+  h2 {
+    font-size: 4.2rem;
+  }
 }
 
 h2 {
@@ -958,4 +960,50 @@ img {
 
 iframe {
   border-radius: 20px;
+}
+
+.rooster-icon,
+.numbers-icon,
+.dp-icon {
+  cursor: pointer !important;
+  color: #9b4dca;
+  position: relative;
+}
+
+.rooster-icon:hover,
+.numbers-icon:hover,
+.dp-icon:hover {
+  color: #c361ff;
+}
+
+.rooster-icon:hover::after,
+.numbers-icon:hover::after,
+.dp-icon:hover::after {
+  content: "";
+  position: absolute;
+  background-size: cover;
+  left: 50%;
+}
+
+.rooster-icon:hover::after {
+  width: 70px;
+  height: 72px;
+  background-image: url("./assets/icons/cluck.png");
+  transform: translateX(-45%) translateY(-25px);
+}
+
+.numbers-icon:hover::after {
+  opacity: 1;
+  width: 70px;
+  height: 70px;
+  background-image: url("./assets/icons/numbers.png");
+  transform: translateX(-15%) translateY(-40px);
+}
+
+.dp-icon:hover::after {
+  background-image: url("./assets/icons/DP.png");
+  opacity: 1;
+  transform: translateX(-45%) translateY(-25px);
+  width: 80px;
+  height: 59px;
 }

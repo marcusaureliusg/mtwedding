@@ -64,10 +64,12 @@ function Engagement() {
             their hotel and went to bed.
           </p>
           <p>
-            The next morning, the local roosters woke them up at the ungodly
-            hour of 5am. Giving up on sleep, Marcus asked Taylor if she wanted
-            to get up and do a really beautiful hike to a waterfall. She agreed
-            and after a quick breakfast they were off.
+            The next morning, the local
+            <span class="rooster-icon"> roosters </span>
+            woke them up at the ungodly hour of 5am. Giving up on sleep, Marcus
+            asked Taylor if she wanted to get up and do a really beautiful hike
+            to a waterfall. She agreed and after a quick breakfast they were
+            off.
           </p>
           <p>
             Taylor knew absolutely nothing about this hike, as is the case with
@@ -79,8 +81,8 @@ function Engagement() {
             helicopter. One even says “you have to suffer for the magic.” Flash
             floods are especially risky during the rainy season, and it just so
             happened that they were visiting during the rainiest month of the
-            year. Luckily, Marcus had been monitoring the stream gauges and knew
-            that they had a small window.
+            year. <span class="numbers-icon"> Luckily, </span>Marcus had been
+            monitoring the stream gauges and knew that they had a small window.
           </p>
           <p>
             The drive to the base of the hike was an adventure in itself, with
@@ -131,27 +133,28 @@ function Engagement() {
             hiked.
           </p>
           <p>
-            Marcus said they should take a photo together, so he propped his
-            phone up and set a “timer” on it (he was actually recording a
-            video). Taylor thought the photo was taken, but Marcus didn’t move.
-            He looked at her, nervously and silently rubbing her arms. “I love
-            you,” he said. Then after a moment, “Will you marry me?” It was an
-            absolute surprise, and Taylor asked “Are you serious?! You’re not
-            messing with me??”. Once he confirmed he was not joking, the Weeping
-            Wall became a very fitting name for the situation. Eventually Taylor
+            Marcus said they should take a together, so he propped his phone up
+            and set a “timer” on it (he was actually recording a video). Taylor
+            thought the photo was taken, but Marcus didn’t move. He looked at
+            her, nervously and silently rubbing her arms. “I love you,” he said.
+            Then after a moment, “Will you marry me?” It was an absolute
+            surprise, and Taylor asked “Are you serious?! You’re not messing
+            with me??”. Once he confirmed he was not joking, the Weeping Wall
+            became a very fitting name for the situation. Eventually Taylor
             remembered to say yes and Marcus dug the ring box out of his
             backpack. Taylor could barely hold herself together she was so
             happy.
           </p>
           <p>
-            Marcus allowed a few moments of celebration and photos before saying
-            “OK we need to get the f out of here”. He knew the water levels
-            would be rising soon and wanted to make sure they got out safely
-            (Taylor just thought it was because they were picking up Marcus’s
-            brother and family from the airport). He made her put the ring
-            safely back inside his pack for the hike down, and they made it back
-            to the car after 7 hours total and with a few hours to spare before
-            the canyon started flash flooding. See, totally safe.
+            Marcus allowed a few moments of celebration and
+            <span class="dp-icon"> photos </span> before saying “OK we need to
+            get the f out of here”. He knew the water levels would be rising
+            soon and wanted to make sure they got out safely (Taylor just
+            thought it was because they were picking up Marcus’s brother and
+            family from the airport). He made her put the ring safely back
+            inside his pack for the hike down, and they made it back to the car
+            after 7 hours total and with a few hours to spare before the canyon
+            started flash flooding. See, totally safe.
           </p>
           <p>
             The rest of the trip was spent in post engagement bliss, drinking

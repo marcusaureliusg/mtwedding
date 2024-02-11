@@ -24,6 +24,9 @@ function Navigation() {
       <Button to="/questions" className="sidebar-toggle">
         Q & A
       </Button>
+      <Button to="/registry" className="sidebar-toggle">
+        REGISTRY
+      </Button>
     </div>
   );
 }

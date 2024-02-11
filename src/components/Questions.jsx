@@ -58,8 +58,13 @@ function Questions() {
     },
     {
       question: "Where should we bring/send our wedding gift?",
-      answer:
-        "Your presence at our wedding is the greatest gift we could ask for! If you would like to honor us with a gift, we have a link to our honeymoon fund on the registry tab.",
+      answer: (
+        <>
+          Your presence at our wedding is the greatest gift we could ask for! If
+          you would like to honor us with a gift, we have a link to our
+          honeymoon fund on the <Link to="/registry">registry tab</Link>.
+        </>
+      ),
     },
     {
       question: "What time should I arrive for the ceremony?",
@@ -78,8 +83,12 @@ function Questions() {
     {
       question:
         "What do I do if something changes and I can/can't make it after I have RSVPed?",
-      answer:
-        "We understand things come up, just email us as soon as possible at hello@mtwedding24.com",
+      answer: (
+        <>
+          We understand things come up, just email us as soon as possible at{" "}
+          <a href="mailto:hello@mtwedding24.com">hello@mtwedding24.com</a>
+        </>
+      ),
     },
     {
       question:
@@ -133,7 +142,7 @@ function Questions() {
       </div>
       {/* Navigation Links */}
       <div className="navigation-links">
-        <Link to="/rsvp">Back to RSVP</Link>
+        <Link to="/registry">Registry</Link>
       </div>
     </>
   );

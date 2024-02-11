@@ -17,6 +17,7 @@ import Location from "./components/Location";
 import Questions from "./components/Questions";
 import Engagement from "./components/Engagement";
 import Rsvp from "./components/Rsvp";
+import Registry from "./components/Registry";
 import Login from "./components/Login";
 import "./App.css";
 
@@ -68,6 +69,7 @@ function App() {
     { path: "/schedule", Component: Schedule, protected: true },
     { path: "/accomodations", Component: Accomodations, protected: true },
     { path: "/rsvp", Component: Rsvp, protected: true },
+    { path: "/registry", Component: Registry, protected: true },
   ];
 
   return (

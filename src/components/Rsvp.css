@@ -61,7 +61,7 @@
 }
 
 .rsvp button:hover {
-  background-color: #8a44b6; /* Slightly darker purple on hover */
+  background-color: #c361ff; /* Slightly darker purple on hover */
   color: #f8f8ff; /* Light color for text on hover */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly more pronounced shadow on hover */
 }
