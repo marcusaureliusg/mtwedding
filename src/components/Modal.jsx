@@ -12,7 +12,9 @@ const Modal = ({ showModal, onClose, children, isSlim = false }) => {
         {" "}
         {/* Stop click propagation */}
         {children}
-        <button onClick={onClose}>Close</button>
+        <button className="modal-button" onClick={onClose}>
+          Close
+        </button>
       </div>
     </div>
   );

@@ -34,6 +34,11 @@ import banner7_768 from "./20220621_175726-768.jpg";
 import banner7_480 from "./20220621_175726-480.jpg";
 import banner7_320 from "./20220621_175726-320.jpg";
 
+import banner8_1366 from "./PXL_20210614_231601934-1366.jpg";
+import banner8_768 from "./PXL_20210614_231601934-768.jpg";
+import banner8_480 from "./PXL_20210614_231601934-480.jpg";
+import banner8_320 from "./PXL_20210614_231601934-320.jpg";
+
 export const banner1 = {
   1366: banner1_1366,
   768: banner1_768,
@@ -81,4 +86,11 @@ export const banner7 = {
   768: banner7_768,
   480: banner7_480,
   320: banner7_320,
+};
+
+export const banner8 = {
+  1366: banner8_1366,
+  768: banner8_768,
+  480: banner8_480,
+  320: banner8_320,
 };

@@ -45,7 +45,7 @@ function Questions() {
     {
       question: "I got to Livingston before cocktail hour, what should I do?",
       answer:
-        "Feel free to go to The Attic early, but if you are not ready for a drink yet take a stroll along the Yellowstone River at Sacajawea Park. Alternatively you could check out Whiskey Creek Saloon below The Attic, The Owl(owned by groomsman Pat McCutcheon), and numerous other breweries/bars/shops downtown! ",
+        "Feel free to go to The Attic early, but if you are not ready yet take a stroll along the Yellowstone River at Sacajawea Park. Alternatively you could check out Whiskey Creek Saloon below The Attic, The Owl(owned by groomsman Pat McCutcheon), and numerous other breweries/bars/shops downtown! ",
     },
     {
       question: "I have allergies- can I eat the reception food?",
@@ -103,7 +103,7 @@ function Questions() {
     {
       question: "What should I expect after the ceremony?",
       answer:
-        "After the ceremony, the immediate family of the couple will be taking pictures for about 1 hour. Guests can drive over to the reception where snacks and drinks will be flowing. Dinner will be served around 7 pm, with dancing to follow.",
+        "After the ceremony, the immediate family of the couple will be taking pictures for about 1 hour. Guests can drive over to the reception where snacks and drinks will be flowing. Dinner will be served around 7.30 pm, with dancing to follow.",
     },
     {
       question: "What is the accessibility like at the ceremony and reception?",
@@ -113,8 +113,13 @@ function Questions() {
     {
       question:
         "I’m not feeling that well or was recently exposed to Covid, what should I do?",
-      answer:
-        "As much as we will miss celebrating with you, we ask that you please refrain from attending if you are sick.",
+      answer: (
+        <>
+          As much as we will miss celebrating with you, we ask that you please
+          refrain from attending if you are{" "}
+          <span class="sick-icon"> sick.</span>
+        </>
+      ),
     },
   ];
 
