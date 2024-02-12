@@ -54,7 +54,12 @@ function Questions() {
     },
     {
       question: "Will there be an open bar?",
-      answer: "Yes! We will have bartenders, please bring cash for tips.",
+      answer: (
+        <>
+          "Yes! We will have bartenders, please bring cash for tips and don't
+          forget your <span class="hg-icon"> ID!</span>
+        </>
+      ),
     },
     {
       question: "Where should we bring/send our wedding gift?",

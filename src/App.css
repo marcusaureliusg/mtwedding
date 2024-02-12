@@ -965,7 +965,8 @@ iframe {
 .rooster-icon,
 .numbers-icon,
 .dp-icon,
-.sick-icon {
+.sick-icon,
+.hg-icon {
   cursor: pointer !important;
   color: #9b4dca;
   position: relative;
@@ -974,14 +975,16 @@ iframe {
 .rooster-icon:hover,
 .numbers-icon:hover,
 .dp-icon:hover,
-.sick-icon:hover {
+.sick-icon:hover,
+.hg-icon:hover {
   color: #c361ff;
 }
 
 .rooster-icon:hover::after,
 .numbers-icon:hover::after,
 .dp-icon:hover::after,
-.sick-icon:hover::after {
+.sick-icon:hover::after,
+.hg-icon:hover::after {
   content: "";
   position: absolute;
   background-size: cover;
@@ -1017,4 +1020,12 @@ iframe {
   transform: translateX(-45%) translateY(-25px);
   width: 100px;
   height: 84px;
+}
+
+.hg-icon:hover::after {
+  background-image: url("./assets/icons/HG.png");
+  opacity: 1;
+  transform: translateX(-45%) translateY(-25px);
+  width: 84px;
+  height: 70px;
 }
