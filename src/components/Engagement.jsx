@@ -133,7 +133,7 @@ function Engagement() {
             hiked.
           </p>
           <p>
-            Marcus said they should take a together, so he propped his phone up
+            Marcus said they should take a photo together, so he propped his phone up
             and set a “timer” on it (he was actually recording a video). Taylor
             thought the photo was taken, but Marcus didn’t move. He looked at
             her, nervously and silently rubbing her arms. “I love you,” he said.
