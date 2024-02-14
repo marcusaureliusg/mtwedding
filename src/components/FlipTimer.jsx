@@ -151,7 +151,12 @@ const FlipTimer = ({ targetDate, customMinutes, playAudio, stopAudio }) => {
         {renderFlipCards(timeLeft.seconds, "seconds")}
       </div>
       {isCompleted && (
-        <Modal showModal={modalOpen} onClose={closeModal}>
+        <Modal
+          showModal={modalOpen}
+          onClose={closeModal}
+          contentClass="modal-content"
+          classes="modal-backdrop"
+        >
           <iframe
             id="weHaveToGoBack"
             width="560"

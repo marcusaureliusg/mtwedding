@@ -4,6 +4,7 @@ function AccommodationOption({
   imageAlt,
   description,
   contactDetails,
+  contactLink
 }) {
   return (
     <div className="column">
@@ -15,6 +16,19 @@ function AccommodationOption({
       {contactDetails.map((detail, index) => (
         <p key={index}>{detail}</p>
       ))}
+       <ul>
+        {contactLink.map((link, index) => (
+          <li key={index}>
+            {link.type === "email" ? (
+              <a href={`mailto:${link.address}`}>{link.address}</a>
+            ) : link.type === "web" ? (
+              <a href={link.address}>{link.text}</a>
+            ) : (
+              <span>{link.address}</span>
+            )}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

@@ -880,72 +880,107 @@ img {
   text-align: center;
 }
 
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: fadeInBackdrop 150s forwards; /* Animation to fade in the backdrop */
-}
-
+.modal-backdrop,
+.modal-backdrop-eng,
 .modal-backdrop-slim {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 11;
+}
+
+.modal-backdrop {
+  background-color: rgba(255, 255, 255, 0.5);
+  animation: fadeInBackdrop 150s forwards; /* Animation to fade in the backdrop */
+}
+
+.modal-backdrop-eng {
+  background-color: rgba(255, 255, 255, 0.7);
+  animation: fadeInBackdropEng 10s forwards; /* Animation to fade in the backdrop */
+}
+
+.modal-backdrop-slim {
+  background-color: rgba(0, 0, 0);
+
   animation: fadeInBackdropSlim 5s forwards; /* Animation to fade in the backdrop */
 }
 
 @keyframes fadeInBackdrop {
   from {
-    background-color: rgba(255, 255, 255, 1); /* Start fully opaque */
+    background-color: rgba(255, 255, 255, 1);
   }
   to {
-    background-color: rgba(255, 255, 255, 0.6); /* End at lower opacity */
+    background-color: rgba(255, 255, 255, 0.6);
   }
 }
 
 @keyframes fadeInBackdropSlim {
   from {
-    background-color: rgb(0, 0, 0); /* Start fully opaque */
+    background-color: rgb(0, 0, 0);
   }
   to {
-    background-color: rgba(0, 0, 0, 0.8); /* End at lower opacity */
+    background-color: rgba(0, 0, 0, 0.8);
   }
+}
+
+@keyframes fadeInBackdropEng {
+  from {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  to {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.modal-content,
+.modal-content-eng,
+.modal-content-slim {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Soft shadow for depth */
+  z-index: 10000; /* Ensure it's above everything */
+  position: relative; /* Required for z-index to take effect */
+  opacity: 0; /* Start invisible */
+  transition: opacity 0.5s ease, transform 0.5s ease-out; /* Smooth fade-in and move into place */
+  transform: translateY(-10%); /* Start slightly above to animate into place */
 }
 
 .modal-content {
   background: white;
-  padding: 20px;
-  border-radius: 5px;
-  opacity: 0; /* Start invisible */
   animation: fadeInContent 14s 29s forwards; /* Delayed fade-in animation */
 }
 
 .modal-content-slim {
-  background: rgb(0, 0, 0);
-  padding: 20px;
-  border-radius: 5px;
-  opacity: 0; /* Start invisible */
+  background: rgb(
+    0,
+    0,
+    0
+  ); /* Consider a lighter background for contrast, if your theme is dark */
+  color: #ffffff; /* Ensure text is readable on the dark background */
   animation: fadeInContent 10s 12s forwards; /* Delayed fade-in animation */
 }
 
-.modal-content-slim button {
-  margin: 3rem;
+.modal-content-eng {
+  background: white;
+  animation: fadeInContent 12s 0s forwards; /* Immediate fade-in animation */
+  transform: translateY(-30%); /* Start slightly above to animate into place */
+}
+
+.modal-button {
+  margin: 1rem;
+  margin-top: 20px;
 }
 
 .go-back-modal {
-  animation: fadeInContent 10s 55s forwards;
+  animation: fadeInContent 10s 57s forwards;
   opacity: 0;
 }
 
@@ -958,8 +993,10 @@ img {
   }
 }
 
+/* Iframe styles */
 iframe {
   border-radius: 20px;
+  margin-bottom: 5px; /* Ensure space between iframe and button */
 }
 
 .rooster-icon,
@@ -1028,4 +1065,38 @@ iframe {
   transform: translateX(-45%) translateY(-25px);
   width: 84px;
   height: 70px;
+}
+
+.eng {
+  background-color: #9b4dca; /* Deep purple background */
+  color: white; /* White text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.eng:hover {
+  background-color: #c361ff; /* Slightly darker purple on hover */
+  color: #f8f8ff; /* Light color for text on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly more pronounced shadow on hover */
+}
+
+.highlighted {
+  color: #000000; /* Dark text for contrast */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Subtle text shadow for depth */
+  transition: background-color 0.5s ease, color 0.5s ease, opacity 0.5s ease;
+  border-radius: 5px;
+  padding: 0px; /* Minimal padding to reduce layout shift */
+  display: inline; /* Allows transform to apply correctly */
+  opacity: 1; /* Fully visible by default */
+  font-weight: bold;
+  position: relative; /* For z-index to work correctly */
+  background-color: rgb(252, 172, 252);
+}
+
+.non-highlighted {
+  opacity: 0.9; /* Makes non-highlighted text less prominent */
 }

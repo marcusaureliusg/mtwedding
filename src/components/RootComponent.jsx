@@ -66,7 +66,12 @@ const RootComponent = () => {
   return (
     <>
       <App />
-      <Modal showModal={showModal} onClose={closeModal} isSlim={true}>
+      <Modal
+        showModal={showModal}
+        onClose={closeModal}
+        contentClass="modal-content-slim"
+        classes="modal-backdrop-slim"
+      >
         <iframe
           id="orientation"
           width="560"

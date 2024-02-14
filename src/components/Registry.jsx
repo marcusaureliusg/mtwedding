@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { banner8 } from "../assets/banners";
 import Banner from "./Banner";
 import { useEffect } from "react";
@@ -27,9 +28,8 @@ const Registry = () => {
             We are so grateful for your support as we start this new chapter
             together. While your presence at our wedding is the greatest gift of
             all, if you wish to honor us with a gift, we have created a registry
-            for our honeymoon fund and some items if physical gifts are more
-            your thing. We hope it makes it easy for you to contribute in any
-            way you feel comfortable.
+            for our honeymoon fund. We hope it makes it easy for you to
+            contribute in any way you feel comfortable.
           </p>
           <p>Visit our registry: </p>
         </section>

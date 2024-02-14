@@ -2,16 +2,62 @@
 // Engagement.jsx
 import { Link } from "react-router-dom";
 import Banner from "./Banner";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import PhotoWheel from "./PhotoWheel";
 import * as engagementImages from "../assets/engagement";
 import { banner5 } from "../assets/banners";
 import engagementPhoto from "../assets/engagement/bluehole.jpg";
+import Modal from "./Modal";
 
 function Engagement() {
+  const [showModal, setShowModal] = useState(false);
+  const [highlightIndex, setHighlightIndex] = useState(0);
+  const text = `Marcus said they should take a photo together, so he propped his
+  phone up and set a “timer” on it (he was actually recording a
+  video). Taylor thought the photo was taken, but Marcus didn’t move.
+  He looked at her, nervously and silently rubbing her arms. “I love
+  you,” he said. Then after a moment, “Will you marry me?” It was an
+  absolute surprise, and Taylor asked “Are you serious?! You’re not
+  messing with me??”. Once he confirmed he was not joking, the Weeping
+  Wall became a very fitting name for the situation. Eventually Taylor
+  remembered to say yes and Marcus dug the ring box out of his
+  backpack. Taylor could barely hold herself together she was so
+  happy.`;
+  const words = text.split(" ");
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    let intervalId;
+    let startDelay = 5000; // Delay in milliseconds before starting highlighting, adjust as needed
+
+    if (showModal) {
+      // Delay the start of the interval
+      const startInterval = () => {
+        intervalId = setInterval(() => {
+          setHighlightIndex((prevIndex) => {
+            if (prevIndex < words.length - 1) {
+              return prevIndex + 1;
+            } else {
+              clearInterval(intervalId);
+              return prevIndex;
+            }
+          });
+        }, 300); // Adjust time as needed
+      };
+      const delayTimeout = setTimeout(startInterval, startDelay);
+
+      // Cleanup delayTimeout on unmount or when showModal changes
+      return () => {
+        clearTimeout(delayTimeout);
+        clearInterval(intervalId);
+      };
+    } else {
+      setHighlightIndex(-1); // Reset highlighting when modal is closed
+    }
+  }, [showModal, words.length]);
 
   const banner1Config = {
     srcSet: `${banner5["320"]} 320w,
@@ -33,6 +79,12 @@ function Engagement() {
 
     return numberA - numberB;
   });
+
+  const openModal = () => setShowModal(true);
+  const closeModal = () => {
+    setShowModal(false);
+    setHighlightIndex(-1); // Reset highlighting when modal is closed
+  };
 
   return (
     <>
@@ -65,7 +117,7 @@ function Engagement() {
           </p>
           <p>
             The next morning, the local
-            <span class="rooster-icon"> roosters </span>
+            <span className="rooster-icon"> roosters </span>
             woke them up at the ungodly hour of 5am. Giving up on sleep, Marcus
             asked Taylor if she wanted to get up and do a really beautiful hike
             to a waterfall. She agreed and after a quick breakfast they were
@@ -81,8 +133,9 @@ function Engagement() {
             helicopter. One even says “you have to suffer for the magic.” Flash
             floods are especially risky during the rainy season, and it just so
             happened that they were visiting during the rainiest month of the
-            year. <span class="numbers-icon"> Luckily, </span>Marcus had been
-            monitoring the stream gauges and knew that they had a small window.
+            year. <span className="numbers-icon"> Luckily, </span>Marcus had
+            been monitoring the stream gauges and knew that they had a small
+            window.
           </p>
           <p>
             The drive to the base of the hike was an adventure in itself, with
@@ -132,23 +185,29 @@ function Engagement() {
             amphitheater-like mountain that looked out into the canyon they just
             hiked.
           </p>
+          <button className="eng" onClick={openModal}>
+            Stop Reading and Click Here!
+          </button>
           <p>
-            Marcus said they should take a photo together, so he propped his phone up
-            and set a “timer” on it (he was actually recording a video). Taylor
-            thought the photo was taken, but Marcus didn’t move. He looked at
-            her, nervously and silently rubbing her arms. “I love you,” he said.
-            Then after a moment, “Will you marry me?” It was an absolute
-            surprise, and Taylor asked “Are you serious?! You’re not messing
-            with me??”. Once he confirmed he was not joking, the Weeping Wall
-            became a very fitting name for the situation. Eventually Taylor
-            remembered to say yes and Marcus dug the ring box out of his
-            backpack. Taylor could barely hold herself together she was so
-            happy.
+            {words.map((word, index) => (
+              <span
+                key={index}
+                className={
+                  index <= highlightIndex ? "highlighted" : "non-highlighted"
+                }
+                style={{
+                  transition: "all 0.3s ease", // Smooth transition for any style changes
+                  // Add more style conditions here as needed
+                }}
+              >
+                {word}{" "}
+              </span>
+            ))}
           </p>
           <p>
             Marcus allowed a few moments of celebration and
-            <span class="dp-icon"> photos </span> before saying “OK we need to
-            get the f out of here”. He knew the water levels would be rising
+            <span className="dp-icon"> photos </span> before saying “OK we need
+            to get the f out of here”. He knew the water levels would be rising
             soon and wanted to make sure they got out safely (Taylor just
             thought it was because they were picking up Marcus’s brother and
             family from the airport). He made her put the ring safely back
@@ -162,9 +221,9 @@ function Engagement() {
             night, time with family, whale watching, and a few more hikes around
             the Napali Coast.
           </p>
-          {/* More text or another subsection */}
+          <p></p>
         </section>
-
+        ↓ Check out some photos of this adventure below!! ↓
         {/* More sections as needed... */}
       </div>
 
@@ -175,6 +234,23 @@ function Engagement() {
 
       {/* PhotoWheel with engagement images */}
       <PhotoWheel images={sortedImagesArray} />
+      <Modal
+        showModal={showModal}
+        onClose={closeModal}
+        classes="modal-backdrop-eng"
+        contentClass="modal-content-eng"
+      >
+        <iframe
+          id="orientation"
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/Nu5h5v_6-Z8?si=eDLd11yU0vNrUw4Y&autoplay=1"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
+      </Modal>
     </>
   );
 }
