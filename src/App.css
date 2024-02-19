@@ -882,7 +882,8 @@ img {
 
 .modal-backdrop,
 .modal-backdrop-eng,
-.modal-backdrop-slim {
+.modal-backdrop-slim,
+.modal-backdrop-dp {
   position: fixed;
   top: 0;
   left: 0;
@@ -908,6 +909,11 @@ img {
   background-color: rgba(0, 0, 0);
 
   animation: fadeInBackdropSlim 5s forwards; /* Animation to fade in the backdrop */
+}
+
+.modal-backdrop-dp {
+  background-color: rgba(255, 255, 255, 1);
+  animation: fadeInBackdropDp 180s forwards; /* Animation to fade in the backdrop */
 }
 
 @keyframes fadeInBackdrop {
@@ -937,9 +943,19 @@ img {
   }
 }
 
+@keyframes fadeInBackdropDp {
+  from {
+    background-color: rgba(255, 255, 255, 1);
+  }
+  to {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+}
+
 .modal-content,
 .modal-content-eng,
-.modal-content-slim {
+.modal-content-slim,
+.modal-content-dp {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -974,14 +990,27 @@ img {
   transform: translateY(-30%); /* Start slightly above to animate into place */
 }
 
+.modal-content-dp {
+  background: white;
+  animation: fadeInContent 20s 4s forwards; /* Immediate fade-in animation */
+  transform: translateY(-10%); /* Start slightly above to animate into place */
+}
+
 .modal-button {
   margin: 1rem;
   margin-top: 20px;
 }
 
 .go-back-modal {
-  animation: fadeInContent 10s 57s forwards;
+  margin-top: 1rem;
+  animation: fadeInContent 15s 55s forwards;
   opacity: 0;
+}
+
+.go-back-modal-p {
+  animation: fadeInContent 15s 57s forwards;
+  opacity: 0;
+  font-size: smaller;
 }
 
 @keyframes fadeInContent {

@@ -73,10 +73,13 @@ const RootComponent = () => {
       stopAudio();
       if (!showModal) setShowModal(true);
     }
-    if (command.replace(/\s+/g, "") === "79460893") {
+    if (
+      command.replace(/\s+/g, "") === "79460893" ||
+      command.replace(/\s+/g, "") === "02079460893"
+    ) {
       console.log("I've always loved you");
-      setModalContentClass("modal-content-eng");
-      setModalBGClass("modal-backdrop-eng");
+      setModalContentClass("modal-content-dp");
+      setModalBGClass("modal-backdrop-dp");
       setModalContentSrc(
         "https://www.youtube.com/embed/iUaHMOWRYpI?si=ZxW_tbDNGkrM0UI0&autoplay=1"
       );

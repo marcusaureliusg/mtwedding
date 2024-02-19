@@ -168,8 +168,12 @@ const FlipTimer = ({ targetDate, customMinutes, playAudio, stopAudio }) => {
             allowFullScreen
           ></iframe>
           <h2 className="go-back-modal">
-            We have to go back...to Kauai!!! Stay tuned
+            We have to go back...to Kauai!!! Stay tuned for details!
           </h2>
+          <p className="go-back-modal-p">
+            ....and great job, we are impressed -if you figured this out on your
+            own you have won a prize, given at the wedding.
+          </p>
         </Modal>
       )}
     </>
