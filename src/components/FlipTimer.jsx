@@ -126,7 +126,7 @@ const FlipTimer = ({ targetDate, customMinutes, playAudio, stopAudio }) => {
               <div className="flip-card-back">{digit}</div>
             </>
           ) : (
-            // Optional: Render a completion state here, e.g., a background image
+            // Render a completion state here, background image
             <div
               className={`flip-card-completed ${type}-digit-${index}-completed`}
             ></div>
@@ -141,7 +141,7 @@ const FlipTimer = ({ targetDate, customMinutes, playAudio, stopAudio }) => {
       if (iframe) {
         iframe.src += "&autoplay=1"; // Appends autoplay parameter to existing src
       }
-    }, 4000); // Adjust the timeout to match your fade-in animation duration
+    }, 4000); // timeout to match fade-in animation duration
   }
 
   return (
