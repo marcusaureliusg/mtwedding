@@ -31,7 +31,7 @@ function Engagement() {
 
   useEffect(() => {
     let intervalId;
-    let startDelay = 5000; // Delay in milliseconds before starting highlighting, adjust as needed
+    let startDelay = 5000; // Delay in milliseconds before starting highlighting
 
     if (showModal) {
       // Delay the start of the interval
@@ -45,7 +45,7 @@ function Engagement() {
               return prevIndex;
             }
           });
-        }, 300); // Adjust time as needed
+        }, 300);
       };
       const delayTimeout = setTimeout(startInterval, startDelay);
 
@@ -65,7 +65,7 @@ function Engagement() {
             ${banner5["768"]} 768w,
             ${banner5["1366"]} 1366w,`,
     classes: "img-banner img-banner--five",
-    src: banner5["1366"], // Default image source
+    src: banner5["1366"],
   };
 
   // Array of images for the PhotoWheel
@@ -197,7 +197,6 @@ function Engagement() {
                 }
                 style={{
                   transition: "all 0.3s ease", // Smooth transition for any style changes
-                  // Add more style conditions here as needed
                 }}
               >
                 {word}{" "}
@@ -224,7 +223,6 @@ function Engagement() {
           <p></p>
         </section>
         ↓ Check out some photos of this adventure below!! ↓
-        {/* More sections as needed... */}
       </div>
 
       {/* Navigation Links */}
