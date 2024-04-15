@@ -25,7 +25,7 @@ function Questions() {
     {
       question: "What date should I RSVP by?",
       answer:
-        "Please RSVP no later than April 5th, but the earlier the better!",
+        "Please RSVP at your earliest convenience!",
     },
     {
       question: "Are kids allowed?",
