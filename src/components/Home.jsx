@@ -12,7 +12,7 @@ function Home() {
             <div className="hero animated fadeInUp">
               {" "}
               <span className="hero__txt hero__txt--lrg">
-                Marcus and Taylor are getting married!
+                Marcus and Taylor got married!!!
               </span>{" "}
               <span className="hero__txt hero__txt--sm">
                 June 8, 2024 · 3.30pm
