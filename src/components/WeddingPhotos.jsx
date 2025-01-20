@@ -10,6 +10,9 @@ const WeddingPhotos = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const galleryUrl =
+    "https://malloryjeanphotos.pic-time.com/-taylormarcus/gallery";
+
   const banner9Config = {
     srcSet: `${banner9["320"]} 320w, ${banner9["480"]} 480w, ${banner9["768"]} 768w, ${banner9["1366"]} 1366w,`,
     classes: "img-banner img-banner--eight",
@@ -30,13 +33,15 @@ const WeddingPhotos = () => {
             What a celebration! We had such an incredible day with you all and
             feel truly lucky and taylor write this please
           </p>
-          <p>Visit our gallery: </p>
+          <p>
+            Visit Our{" "}
+            <a href={galleryUrl} target="_blank" rel="noopener noreferrer">
+              Wedding Gallery
+            </a>{" "}
+          </p>
         </section>
         {/* Navigation Links */}
-        <LinkPreview
-          url="https://malloryjeanphotos.pic-time.com/-taylormarcus/gallery"
-          linkText="Wedding Gallery"
-        />
+        <LinkPreview url={galleryUrl} />
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const LinkPreview = ({ url, linkText }) => {
+const LinkPreview = ({ url }) => {
   const [previewData, setPreviewData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -42,6 +42,7 @@ const LinkPreview = ({ url, linkText }) => {
   if (error) return <p style={{ color: "red" }}>{error}</p>;
 
   return (
+    <>
     <a
       href={url}
       target="_blank"
@@ -73,11 +74,9 @@ const LinkPreview = ({ url, linkText }) => {
         <h3 style={{ margin: "0.5rem 0" }}>
           {previewData.title || "No Title"}
         </h3>
-        <a href={url} target="_blank" rel="noopener noreferrer">
-          {linkText}
-        </a>
       </div>
     </a>
+    </>
   );
 };
 
