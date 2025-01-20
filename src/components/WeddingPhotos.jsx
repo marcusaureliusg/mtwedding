@@ -30,7 +30,7 @@ const WeddingPhotos = () => {
           <h2 className="section__header">Our Wedding Photos</h2>
           <p>
             Click below to visit our photo gallery from the big day. Please feel
-            free to take a look, download, or order any photos. Thankyou again
+            free to take a look, download, or order any photos. Thank you again
             for making this day so special!
           </p>
           <p>
