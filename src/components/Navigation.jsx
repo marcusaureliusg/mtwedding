@@ -6,6 +6,9 @@ function Navigation() {
       <Button to="/" className="sidebar-toggle" textClass="button-text">
         M + T
       </Button>
+      <Button to="/wedding-photos" className="sidebar-toggle">
+        WEDDING PHOTOS
+      </Button>
       <Button to="/schedule" className="sidebar-toggle">
         SCHEDULE
       </Button>

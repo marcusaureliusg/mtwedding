@@ -774,7 +774,7 @@ img {
 
 @media screen and (min-width: 680px) {
   .img-banner {
-    /*height: 51vw;*/
+    height: 51vw;
   }
 }
 

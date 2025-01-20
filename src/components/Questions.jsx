@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 // Questions.jsx
 import "./Questions.css";
 import { banner4 } from "../assets/banners";
@@ -56,8 +57,8 @@ function Questions() {
       question: "Will there be an open bar?",
       answer: (
         <>
-          "Yes! We will have bartenders, please bring cash for tips and don't
-          forget your <span class="hg-icon"> ID!</span>
+          Yes! We will have bartenders, please bring cash for tips and don't
+          forget your <span className="hg-icon"> ID!</span>
         </>
       ),
     },
@@ -122,7 +123,7 @@ function Questions() {
         <>
           As much as we will miss celebrating with you, we ask that you please
           refrain from attending if you are{" "}
-          <span class="sick-icon"> sick.</span>
+          <span className="sick-icon"> sick.</span>
         </>
       ),
     },
