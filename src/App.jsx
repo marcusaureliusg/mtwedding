@@ -18,6 +18,7 @@ import Questions from "./components/Questions";
 import Engagement from "./components/Engagement";
 import Rsvp from "./components/Rsvp";
 import Registry from "./components/Registry";
+import WeddingPhotos from "./components/WeddingPhotos";
 import Login from "./components/Login";
 import "./App.css";
 
@@ -70,6 +71,7 @@ function App() {
     { path: "/accomodations", Component: Accomodations, protected: true },
     { path: "/rsvp", Component: Rsvp, protected: true },
     { path: "/registry", Component: Registry, protected: true },
+    { path: "/wedding-photos", Component: WeddingPhotos, protected: true },
   ];
 
   return (
