@@ -1,4 +1,3 @@
-
 import { banner9 } from "../assets/banners";
 import Banner from "./Banner";
 import { useEffect } from "react";
@@ -30,8 +29,9 @@ const WeddingPhotos = () => {
         <section>
           <h2 className="section__header">Our Wedding Photos</h2>
           <p>
-            What a celebration! We had such an incredible day with you all and
-            feel truly lucky and taylor write this please
+            Click below to visit our photo gallery from the big day. Please feel
+            free to take a look, download, or order any photos. Thankyou again
+            for making this day so special!
           </p>
           <p>
             Visit Our{" "}

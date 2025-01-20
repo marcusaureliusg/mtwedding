@@ -71,9 +71,6 @@ const LinkPreview = ({ url }) => {
             }}
           />
         )}
-        <h3 style={{ margin: "0.5rem 0" }}>
-          {previewData.title || "No Title"}
-        </h3>
       </div>
     </a>
     </>
