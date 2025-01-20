@@ -22,7 +22,7 @@ function Home() {
             <span className="link-leader">
               {" "}
               <div className="navigation-links home-link">
-                <Link to="/schedule">So whats the plan?</Link>
+                <Link to="/wedding-photos">Checkout our Wedding Photos!</Link>
               </div>
             </span>
           </div>
