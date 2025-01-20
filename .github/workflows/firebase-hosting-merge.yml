@@ -2,10 +2,17 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on merge
+
+permissions:
+  contents: read
+  checks: write
+  id-token: write
+
 'on':
   push:
     branches:
       - master
+
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
@@ -18,3 +25,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MTWEDDING_5F309 }}'
           channelId: live
           projectId: mtwedding-5f309
+

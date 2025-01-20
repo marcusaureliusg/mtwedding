@@ -1,5 +1,10 @@
 name: Deploy to Firebase Hosting
 
+permissions:
+  contents: read
+  checks: write
+  id-token: write
+
 on:
   push:
     branches:
@@ -9,18 +14,18 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v2
+      - name: Checkout Repo
+        uses: actions/checkout@v2
 
-    - name: Install Dependencies
-      run: npm install
+      - name: Install Dependencies
+        run: npm install
 
-    - name: Build
-      run: npm run build # Update this if your build command differs
+      - name: Build
+        run: npm run build # Update this if your build command differs
 
-    - name: Deploy to Firebase
-      uses: w9jds/firebase-action@master
-      with:
-        args: deploy --only hosting
-      env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
