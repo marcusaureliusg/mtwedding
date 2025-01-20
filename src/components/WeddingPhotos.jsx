@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
+
 import { banner9 } from "../assets/banners";
 import Banner from "./Banner";
 import { useEffect } from "react";
@@ -15,7 +15,7 @@ const WeddingPhotos = () => {
 
   const banner9Config = {
     srcSet: `${banner9["320"]} 320w, ${banner9["480"]} 480w, ${banner9["768"]} 768w, ${banner9["1366"]} 1366w,`,
-    classes: "img-banner img-banner--eight",
+    classes: "img-banner img-banner--nine",
     src: banner9["1366"], // Default image source
   };
 
