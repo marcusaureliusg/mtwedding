@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
-
+import { banner9 } from "../assets/banners";
+import Banner from "./Banner";
 import { useEffect } from "react";
 
 import LinkPreview from "./LinkPreview";
@@ -9,8 +10,19 @@ const WeddingPhotos = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const banner9Config = {
+    srcSet: `${banner9["320"]} 320w, ${banner9["480"]} 480w, ${banner9["768"]} 768w, ${banner9["1366"]} 1366w,`,
+    classes: "img-banner img-banner--eight",
+    src: banner9["1366"], // Default image source
+  };
+
   return (
     <>
+      <Banner
+        srcSet={banner9Config.srcSet}
+        classes={banner9Config.classes}
+        src={banner9Config.src}
+      />
       <div className="wrapper no-padding-bottom" id="gallery">
         <section>
           <h2 className="section__header">Our Wedding Photos</h2>
