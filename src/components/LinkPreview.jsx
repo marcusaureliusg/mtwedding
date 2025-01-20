@@ -38,41 +38,47 @@ const LinkPreview = ({ url }) => {
     fetchPreview();
   }, [url]);
 
-  if (loading) return <p>Loading preview...</p>;
+  if (loading)
+    return (
+      <div style={{ height: "100%" }}>
+        <div className="spinner"></div>
+        <div className="loading-text">Loading...</div>
+      </div>
+    );
   if (error) return <p style={{ color: "red" }}>{error}</p>;
 
   return (
     <>
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener, noreferrer"
-      style={{ textDecoration: "none", color: "inherit" }}
-    >
-      <div
-        className="preview-card"
-        style={{
-          border: "1px solid #ccc",
-          padding: "1rem",
-          borderRadius: "8px",
-          boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-          maxWidth: "1400px",
-          margin: "2rem auto",
-        }}
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener, noreferrer"
+        style={{ textDecoration: "none", color: "inherit" }}
       >
-        {previewData.images && previewData.images.length > 0 && (
-          <img
-            src={previewData.images[0]}
-            alt="Preview"
-            style={{
-              maxWidth: "100%",
-              borderRadius: "4px",
-              marginBottom: "0.5rem",
-            }}
-          />
-        )}
-      </div>
-    </a>
+        <div
+          className="preview-card"
+          style={{
+            border: "1px solid #ccc",
+            padding: "1rem",
+            borderRadius: "8px",
+            boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+            maxWidth: "1400px",
+            margin: "2rem auto",
+          }}
+        >
+          {previewData.images && previewData.images.length > 0 && (
+            <img
+              src={previewData.images[0]}
+              alt="Preview"
+              style={{
+                maxWidth: "100%",
+                borderRadius: "4px",
+                marginBottom: "0.5rem",
+              }}
+            />
+          )}
+        </div>
+      </a>
     </>
   );
 };

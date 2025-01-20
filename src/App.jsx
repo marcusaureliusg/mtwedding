@@ -40,7 +40,7 @@ function App() {
   const ProtectedRoute = ({ children }) => {
     if (isLoading) {
       return (
-        <div className="loading-container homebg">
+        <div className="loading-container">
           <div>
             <div className="spinner"></div>
             <div className="loading-text">Loading...</div>
