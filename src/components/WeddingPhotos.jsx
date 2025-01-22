@@ -29,15 +29,12 @@ const WeddingPhotos = () => {
         <section>
           <h2 className="section__header">Our Wedding Photos</h2>
           <p>
-            Click below to visit our photo gallery from the big day. Please feel
-            free to take a look, download, or order any photos. Thank you again
-            for making this day so special!
-          </p>
-          <p>
-            Visit Our{" "}
+            Click below to visit our{" "}
             <a href={galleryUrl} target="_blank" rel="noopener noreferrer">
-              Wedding Gallery
+              photo gallery
             </a>{" "}
+            from the big day. Please feel free to take a look, download, or
+            order any photos. Thank you again for making this day so special!
           </p>
         </section>
         {/* Navigation Links */}

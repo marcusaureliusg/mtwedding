@@ -8,7 +8,7 @@ permissions:
 on:
   push:
     branches:
-      - master # Your default branch might be main or another branch
+      - master
 
 jobs:
   build_and_deploy:
@@ -21,7 +21,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build # Update this if your build command differs
+        run: npm run build
 
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master

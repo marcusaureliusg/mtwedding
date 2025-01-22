@@ -1,0 +1,35 @@
+/* LinkPreview.css */
+
+.preview-card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 1400px;
+  margin: 2rem auto;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.preview-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+}
+
+.preview-card img {
+  max-width: 100%;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.link-preview:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+.link-preview {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 2rem;
+}

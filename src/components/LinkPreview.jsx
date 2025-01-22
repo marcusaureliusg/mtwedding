@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./LinkPreview.css";
 
 const LinkPreview = ({ url }) => {
   const [previewData, setPreviewData] = useState(null);
@@ -16,7 +17,7 @@ const LinkPreview = ({ url }) => {
       setLoading(true);
       setError("");
       try {
-        // Your Cloud Function URL:
+        // Cloud Function URL:
         const functionUrl =
           "https://us-central1-mtwedding-5f309.cloudfunctions.net/getLinkPreview";
         const response = await fetch(
@@ -50,32 +51,14 @@ const LinkPreview = ({ url }) => {
   return (
     <>
       <a
+        className="link-preview"
         href={url}
         target="_blank"
         rel="noopener, noreferrer"
-        style={{ textDecoration: "none", color: "inherit" }}
       >
-        <div
-          className="preview-card"
-          style={{
-            border: "1px solid #ccc",
-            padding: "1rem",
-            borderRadius: "8px",
-            boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-            maxWidth: "1400px",
-            margin: "2rem auto",
-          }}
-        >
+        <div className="preview-card">
           {previewData.images && previewData.images.length > 0 && (
-            <img
-              src={previewData.images[0]}
-              alt="Preview"
-              style={{
-                maxWidth: "100%",
-                borderRadius: "4px",
-                marginBottom: "0.5rem",
-              }}
-            />
+            <img src={previewData.images[0]} alt="Preview" />
           )}
         </div>
       </a>
