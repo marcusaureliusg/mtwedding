@@ -5,6 +5,7 @@ import App from "../App";
 import timerBeep from "../assets/sounds/timerBeep.mp3";
 import fourMin from "../assets/sounds/4m.mp3";
 import Modal from "./Modal";
+import SmokeMonster from "./SmokeMonster";
 
 const RootComponent = () => {
   const [useCustomMinutes, setUseCustomMinutes] = useState(false);
@@ -15,6 +16,13 @@ const RootComponent = () => {
   const [showModal, setShowModal] = useState(false);
   const timerBeepAudio = useRef(new Audio(timerBeep));
   const fourMinAudio = useRef(null);
+  const [showSmoke, setShowSmoke] = useState(false);
+  const [showIslandMap, setShowIslandMap] = useState(false);
+
+  const handleEnveloped = () => {
+    console.log("Screen is fully enveloped by smoke!");
+    setShowIslandMap(true);
+  };
 
   const commonIframeProps = {
     width: "560",
@@ -91,10 +99,20 @@ const RootComponent = () => {
       setCustomMinutes(4.2);
       setUseCustomMinutes(true);
     }
+    if (command === "smoke") {
+      setShowSmoke(true);
+    }
   };
 
   return (
     <>
+      {/* Conditionally render the smoke monster */}
+      {showSmoke && (
+        <SmokeMonster
+          onDefeat={() => console.log("Monster defeated!")}
+          onEnveloped={handleEnveloped}
+        />
+      )}
       <App />
       <Modal
         showModal={showModal}
