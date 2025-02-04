@@ -14,8 +14,8 @@ let globalSystem = null;
 export default function SmokeMonster({
   onDefeat,
   onEnveloped,
-  timeToEnvelop = 60000,
-  maxHealth = 5000,
+  timeToEnvelop = 52000,
+  maxHealth = 108000,
 }) {
   // ========== Monster States in React ==========
 
@@ -28,7 +28,9 @@ export default function SmokeMonster({
   useEffect(() => {
     console.log("SmokeMonster mounted -> set to fighting");
     setMonsterState("fighting");
-  }, []);
+    setMonsterHealth(maxHealth); // Reset health when remounted
+    setFinished(false); // Reset the "finished" state
+  }, [maxHealth]); // Depend on maxHealth to trigger reset
 
   // If fighting, after timeToEnvelop ms => enveloping
   useEffect(() => {
@@ -57,13 +59,19 @@ export default function SmokeMonster({
     }
   }, [monsterState, onEnveloped]);
 
-  // If health drops to 0 => onDefeat + done
+  // If health drops to 0 => trigger defeat animation instead of instantly unmounting
   useEffect(() => {
     if (monsterHealth <= 0 && monsterState !== "done") {
-      console.log("Monster defeated => calling onDefeat + done");
-      if (onDefeat) onDefeat();
-      setMonsterState("done");
-      setFinished(true);
+      console.log("💀 Monster defeated => Starting defeat animation...");
+
+      // Set a new state for the fade-out effect
+      setMonsterState("defeated");
+
+      setTimeout(() => {
+        console.log("💀 Defeat animation complete => Calling onDefeat()");
+        if (onDefeat) onDefeat(); // Now call parent unmount
+        setFinished(true);
+      }, 7000); //
     }
   }, [monsterHealth, monsterState, onDefeat]);
 
@@ -98,6 +106,13 @@ export default function SmokeMonster({
         globalTexture,
         p5
       );
+
+      // Attach damage handler safely
+      p5._reactSmokeMonsterDamage = (damage) => {
+        if (!globalSystem || !setMonsterHealth) return;
+        console.log(`💥 Smoke Monster Hit! -${damage} HP`);
+        setMonsterHealth((prev) => Math.max(prev - damage, 0));
+      };
     } else {
       console.log("Texture not yet loaded => system not created");
       // Rely on the code in draw() to check again if we want a fallback
@@ -149,8 +164,8 @@ export default function SmokeMonster({
       }
 
       // Use lerp to create a smooth transition to the mouse position
-      const smoothX = p5.lerp(globalSystem.origin.x, targetX, 0.08); // controls the smoothness
-      const smoothY = p5.lerp(globalSystem.origin.y, targetY, 0.08);
+      const smoothX = p5.lerp(globalSystem.origin.x, targetX, 0.06); // controls the smoothness
+      const smoothY = p5.lerp(globalSystem.origin.y, targetY, 0.06);
 
       globalSystem.updateOrigin(smoothX, smoothY); // Update the base position
     }
@@ -173,15 +188,45 @@ export default function SmokeMonster({
       }
     }
 
-    // If enveloping => heavier spawn + swirl
+    // If enveloping => massive particle spawn + full screen expansion
     if (monsterState === "enveloping") {
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 50; i++) {
+        // ⬅️ Increased spawn rate
         globalSystem.addParticle();
       }
 
+      // Spread particles everywhere
       globalSystem.applyForce(
-        p5.createVector(p5.random(-2, 2), p5.random(-3, -1))
+        p5.createVector(p5.random(-5, 5), p5.random(-6, -2))
       );
+
+      // 🔥 Make the whole screen turn dark
+      p5.fill(0, 0, 0, 20);
+      p5.rect(0, 0, p5.width, p5.height);
+    }
+
+    if (monsterState === "defeated") {
+      console.log("🔥 Running smooth defeat animation...");
+
+      // Gradually darken the background for a "vanishing into darkness" effect
+      p5.background(0, 0, 0, 10); // Slowly fades to black
+
+      // Reduce opacity of all particles to fade them out over time
+      for (const pt of globalSystem.particles) {
+        pt.lifespan -= 3; // Fade out the particles
+        pt.size *= 0.97; // Shrink particles for a "disintegration" effect
+      }
+
+      // Create a final "shockwave pulse" effect before full fade-out
+      if (p5.frameCount % 30 === 0) {
+        p5.fill(255, 150); // Bright white burst
+        p5.ellipse(globalSystem.origin.x, globalSystem.origin.y, 500, 500);
+      }
+
+      // Once all particles have disappeared, complete the defeat
+      if (globalSystem.particles.length === 0) {
+        console.log("🔥 Smoke Monster completely faded away.");
+      }
     }
 
     // Run the system
@@ -298,22 +343,42 @@ class ParticleSystem {
   }
 
   applyDeflectForce(mouseX, mouseY) {
+    let damage = 0; // Track damage applied
+
     for (const pt of this.particles) {
-      // Calculate the vector from the mouse to the particle
       const mouse = this.p5.createVector(mouseX, mouseY);
       const dir = p5.Vector.sub(pt.loc, mouse);
-
-      const distance = dir.mag(); // Distance between the mouse and the particle
-      const maxDistance = 100; // Maximum range for the deflect effect
+      const distance = dir.mag();
+      const maxDistance = 100;
 
       if (distance < maxDistance) {
-        dir.normalize(); // Get the direction of the force
-        const strength = this.p5.map(distance, 0, maxDistance, 5, 0); // Stronger force when closer
+        dir.normalize();
+        const strength = this.p5.map(distance, 0, maxDistance, 10, 0);
         const deflectForce = dir.mult(strength);
 
-        // Apply the force to the particle
         pt.applyForce(deflectForce);
+
+        // If particle is now moving TOWARD the origin (Smoke Monster), increase damage
+        const movingTowardMonster =
+          p5.Vector.dot(pt.vel, p5.Vector.sub(globalSystem.origin, pt.loc)) > 0;
+
+        if (movingTowardMonster) {
+          const attraction = p5.Vector.sub(globalSystem.origin, pt.loc).mult(
+            0.05
+          ); // ✅ Small pull toward the monster
+          pt.applyForce(attraction);
+          const speed = pt.vel.mag(); // Get the particle speed
+          damage += Math.floor(speed * 3); // More speed = More damage
+        }
       }
+    }
+
+    // Apply the calculated damage
+    if (damage > 0 && this.p5._reactSmokeMonsterDamage) {
+      setTimeout(() => {
+        console.log(`🔥 Deflection Damage: ${damage}`);
+        this.p5._reactSmokeMonsterDamage(damage);
+      }, 0);
     }
   }
 }

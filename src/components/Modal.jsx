@@ -1,9 +1,16 @@
 // Modal.jsx
-const Modal = ({ showModal, onClose, children, classes, contentClass }) => {
+const Modal = ({
+  showModal,
+  onClose,
+  children,
+  classes,
+  contentClass,
+  zIndex,
+}) => {
   if (!showModal) return null;
 
   return (
-    <div className={classes}>
+    <div className={classes} style={{ zIndex }}>
       {" "}
       <div className={contentClass}>
         {" "}

@@ -44,6 +44,11 @@ import banner9_768 from "./ceremony-wedding-bozeman-montana-bride-montanabridal-
 import banner9_480 from "./ceremony-wedding-bozeman-montana-bride-montanabridal-portrait-photo-photography-mjphoto-214-480.jpg";
 import banner9_320 from "./ceremony-wedding-bozeman-montana-bride-montanabridal-portrait-photo-photography-mjphoto-214-320.jpg";
 
+import banner10_1366 from "./20240921_164951-1366.jpg";
+import banner10_768 from "./20240921_164951-768.jpg";
+import banner10_480 from "./20240921_164951-480.jpg";
+import banner10_320 from "./20240921_164951-320.jpg";
+
 export const banner1 = {
   1366: banner1_1366,
   768: banner1_768,
@@ -105,4 +110,11 @@ export const banner9 = {
   768: banner9_768,
   480: banner9_480,
   320: banner9_320,
+};
+
+export const banner10 = {
+  1366: banner10_1366,
+  768: banner10_768,
+  480: banner10_480,
+  320: banner10_320,
 };

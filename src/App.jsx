@@ -19,6 +19,8 @@ import Engagement from "./components/Engagement";
 import Rsvp from "./components/Rsvp";
 import Registry from "./components/Registry";
 import WeddingPhotos from "./components/WeddingPhotos";
+import Honeymoon from "./components/Honeymoon";
+import Island from "./components/Island";
 import Login from "./components/Login";
 import "./App.css";
 
@@ -72,6 +74,8 @@ function App() {
     { path: "/rsvp", Component: Rsvp, protected: true },
     { path: "/registry", Component: Registry, protected: true },
     { path: "/wedding-photos", Component: WeddingPhotos, protected: true },
+    { path: "/honeymoon", Component: Honeymoon, protected: true },
+    { path: "/island", Component: Island, protected: true },
   ];
 
   return (
