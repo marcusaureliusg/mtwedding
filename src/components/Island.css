@@ -1,0 +1,113 @@
+@keyframes waterFlow {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  } /* Subtle zoom */
+  100% {
+    transform: scale(1);
+  }
+}
+
+.island-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Water Background (Separate from Map) */
+.ocean-background {
+  position: absolute;
+  width: 200vw;
+  height: 200vh;
+  top: -50vh;
+  left: -50vw;
+  background: url("../assets/water-texture.jpg") no-repeat center center;
+  background-size: cover;
+  animation: waterFlow 15s infinite alternate ease-in-out;
+  transition: transform 0.2s ease-out;
+}
+
+/* Ensures map stays above the background */
+.island-map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Removes background color from Leaflet */
+.leaflet-container {
+  background: none !important;
+}
+
+/* 🔍 Popup Styling */
+.leaflet-popup-content {
+  font-size: 18px; /* Larger text */
+  line-height: 1.5;
+  max-width: 300px;
+}
+
+.leaflet-popup-content-wrapper {
+  background: rgba(0, 0, 0, 0.85); /* Darker background for readability */
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.leaflet-popup-tip {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.custom-marker {
+  background-color: red;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  display: block;
+  border: 2px solid white;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* 🔍 Marker hover effect */
+.custom-marker:hover {
+  transform: scale(1.5); /* Make marker bigger on hover */
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 1); /* Stronger glow */
+}
+
+/* Default marker */
+.leaflet-marker-icon {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  opacity: 0.6;
+}
+
+/* Enlarge the marker on hover */
+.leaflet-marker-icon:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.mini-map-container {
+  position: absolute;
+  top: 2px;
+  right: 20px;
+  width: 220px;
+  height: 220px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.mini-map {
+  width: 100%;
+  height: 100%;
+}

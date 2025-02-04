@@ -9,6 +9,9 @@ function Navigation() {
       <Button to="/wedding-photos" className="sidebar-toggle">
         WEDDING PHOTOS
       </Button>
+      <Button to="/honeymoon" className="sidebar-toggle">
+        HONEYMOON
+      </Button>
       <Button to="/schedule" className="sidebar-toggle">
         SCHEDULE
       </Button>

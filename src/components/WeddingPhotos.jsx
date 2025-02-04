@@ -1,8 +1,11 @@
 import { banner9 } from "../assets/banners";
 import Banner from "./Banner";
 import { useEffect } from "react";
-
+import * as weddingImages from "../assets/weddingphotos";
 import LinkPreview from "./LinkPreview";
+import PhotoWheel from "./PhotoWheel";
+import { Link } from "react-router-dom";
+import { getSortedImageArray } from "../utils/images";
 
 const WeddingPhotos = () => {
   useEffect(() => {
@@ -18,6 +21,8 @@ const WeddingPhotos = () => {
     src: banner9["1366"], // Default image source
   };
 
+  const sortedImagesArray = getSortedImageArray(weddingImages);
+
   return (
     <>
       <Banner
@@ -27,18 +32,29 @@ const WeddingPhotos = () => {
       />
       <div className="wrapper no-padding-bottom" id="gallery">
         <section>
-          <h2 className="section__header">Our Wedding Photos</h2>
+          <h2 className="section__header">Our Wedding Gallery</h2>
           <p>
             Click below to visit our{" "}
             <a href={galleryUrl} target="_blank" rel="noopener noreferrer">
-              photo gallery
+              wedding photo gallery
             </a>{" "}
             from the big day. Please feel free to take a look, download, or
             order any photos. Thank you again for making this day so special!
           </p>
+          ↓ Also keep scrolling for some less professional photos from the
+          wedding week and a recount of our honeymoon!! ↓
         </section>
         {/* Navigation Links */}
         <LinkPreview url={galleryUrl} />
+        <h2 className="section__header">Random Wedding Photos</h2>
+      </div>
+
+      {/* PhotoWheel with engagement images */}
+      <PhotoWheel images={sortedImagesArray} />
+
+      {/* Navigation Links */}
+      <div className="navigation-links">
+        <Link to="/honeymoon">lastly... a recount of our honeymoon!</Link>
       </div>
     </>
   );
