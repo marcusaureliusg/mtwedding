@@ -46,7 +46,7 @@ import a46 from "./awhl (46).jpg";
 import a47 from "./awhl (47).jpg";
 import a48 from "./awhl (48).jpg";
 
-export {
+export const images = [
   a1,
   a2,
   a3,
@@ -94,4 +94,4 @@ export {
   a46,
   a47,
   a48,
-};
+];

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Banner from "./Banner";
 import { useEffect, useState } from "react";
 import PhotoWheel from "./PhotoWheel";
-import * as engagementImages from "../assets/engagement";
+import { engagementImages } from "../assets/engagement";
 import { banner5 } from "../assets/banners";
 import engagementPhoto from "../assets/engagement/bluehole.jpg";
 import Modal from "./Modal";
@@ -67,18 +67,6 @@ function Engagement() {
     classes: "img-banner img-banner--five",
     src: banner5["1366"],
   };
-
-  // Array of images for the PhotoWheel
-  const imagesArray = Object.values(engagementImages);
-
-  // Custom sort function
-  const sortedImagesArray = imagesArray.sort((a, b) => {
-    // Extract numbers from filenames
-    const numberA = parseInt(a.match(/\d+/)[0], 10);
-    const numberB = parseInt(b.match(/\d+/)[0], 10);
-
-    return numberA - numberB;
-  });
 
   const openModal = () => setShowModal(true);
   const closeModal = () => {
@@ -231,7 +219,7 @@ function Engagement() {
       </div>
 
       {/* PhotoWheel with engagement images */}
-      <PhotoWheel images={sortedImagesArray} />
+      <PhotoWheel images={engagementImages} />
       <Modal
         showModal={showModal}
         onClose={closeModal}

@@ -1,11 +1,10 @@
 import { banner9 } from "../assets/banners";
 import Banner from "./Banner";
 import { useEffect } from "react";
-import * as weddingImages from "../assets/weddingphotos";
+import { wwhlImages } from "../assets/weddingphotos"; 
 import LinkPreview from "./LinkPreview";
 import PhotoWheel from "./PhotoWheel";
 import { Link } from "react-router-dom";
-import { getSortedImageArray } from "../utils/images";
 
 const WeddingPhotos = () => {
   useEffect(() => {
@@ -20,8 +19,6 @@ const WeddingPhotos = () => {
     classes: "img-banner img-banner--nine",
     src: banner9["1366"], // Default image source
   };
-
-  const sortedImagesArray = getSortedImageArray(weddingImages);
 
   return (
     <>
@@ -50,7 +47,7 @@ const WeddingPhotos = () => {
       </div>
 
       {/* PhotoWheel with engagement images */}
-      <PhotoWheel images={sortedImagesArray} />
+      <PhotoWheel images={wwhlImages} />
 
       {/* Navigation Links */}
       <div className="navigation-links">

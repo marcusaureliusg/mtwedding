@@ -24,7 +24,7 @@ import m23 from "./mwhl (23).jpg";
 import m24 from "./mwhl (24).jpg";
 import m25 from "./mwhl (25).jpg";
 
-export {
+export const mwhlImages = [
   m1,
   m2,
   m3,
@@ -50,4 +50,4 @@ export {
   m23,
   m24,
   m25,
-};
+];

@@ -20,7 +20,8 @@ import w18 from "./wheeleng18.jpg";
 import w19 from "./wheeleng00.jpg";
 import w20 from "./wheeleng19.jpg";
 
-export {
+// ✅ Create an array for direct use
+export const engagementImages = [
   w1,
   w2,
   w3,
@@ -41,4 +42,4 @@ export {
   w18,
   w19,
   w20,
-};
+];

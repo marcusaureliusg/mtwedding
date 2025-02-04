@@ -43,7 +43,7 @@ import w43 from "./wwhl (43).jpg";
 import w44 from "./wwhl (44).jpg";
 import w45 from "./wwhl (45).jpg";
 
-export {
+export const wwhlImages = [
   w1,
   w2,
   w3,
@@ -88,4 +88,4 @@ export {
   w43,
   w44,
   w45,
-};
+];

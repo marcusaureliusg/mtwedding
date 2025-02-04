@@ -4,11 +4,10 @@ import { Link } from "react-router-dom";
 import Banner from "./Banner";
 import { useEffect } from "react";
 import PhotoWheel from "./PhotoWheel";
-import * as festImages from "../assets/hmoon/fest";
-import * as cphImages from "../assets/hmoon/cph";
-import * as alpsImages from "../assets/hmoon/alps";
+import { mwhlImages } from "../assets/hmoon/fest";
+import { cwhlImages } from "../assets/hmoon/cph";
+import { images } from "../assets/hmoon/alps";
 import { banner10 } from "../assets/banners";
-import { getSortedImageArray } from "../utils/images";
 
 function Honeymoon() {
   useEffect(() => {
@@ -23,9 +22,6 @@ function Honeymoon() {
     classes: "img-banner img-banner--ten",
     src: banner10["1366"],
   };
-  const cphSortedImages = getSortedImageArray(cphImages);
-  const alpsSortedImages = getSortedImageArray(alpsImages);
-  const festSortedImages = getSortedImageArray(festImages);
 
   return (
     <>
@@ -101,7 +97,7 @@ function Honeymoon() {
         </section>
       </div>
       {/* PhotoWheel with engagement images */}
-      <PhotoWheel id="wheel1" images={cphSortedImages} />
+      <PhotoWheel id="wheel1" images={cwhlImages} />
 
       <div className="wrapper">
         ↓ keep scrolling!! ↓
@@ -159,7 +155,7 @@ function Honeymoon() {
         </section>
       </div>
       {/* PhotoWheel with engagement images */}
-      <PhotoWheel id="wheel2" images={alpsSortedImages} />
+      <PhotoWheel id="wheel2" images={images} />
       <div className="wrapper">
         ↓ keep scrolling!! ↓
         <section>
@@ -200,7 +196,7 @@ function Honeymoon() {
         </section>
       </div>
       {/* PhotoWheel with engagement images */}
-      <PhotoWheel id="wheel3" images={festSortedImages} />
+      <PhotoWheel id="wheel3" images={mwhlImages} />
       <div className="wrapper">
         <h4>
           Thank you so much to everyone who donated to our honeymoon fund- we

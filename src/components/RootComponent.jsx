@@ -133,7 +133,7 @@ const RootComponent = () => {
               stopAudio={stopAudio}
             />
           ) : (
-            <FlipTimer targetDate="2024-06-08T16:00:00-07:00" />
+            <FlipTimer targetDate="2025-06-08T16:00:00-07:00" />
           )}
         </div>
       </footer>
