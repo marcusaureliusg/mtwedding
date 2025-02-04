@@ -1,35 +1,35 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
-function Banner(props) {
-  const imageRef = useRef(null); // Create a ref for the image
+function Banner({ src, srcSet, classes }) {
+  const imageRef = useRef(null);
+  const [imageLoaded, setImageLoaded] = useState(false); // Track loading state
 
   useEffect(() => {
     const bannerImg = imageRef.current;
-    if (bannerImg.complete) {
-      bannerImg.classList.add("loaded");
-    } else {
-      bannerImg.addEventListener("load", () => {
-        bannerImg.classList.add("loaded");
-      });
+    if (!bannerImg) return;
 
-      // Cleanup function to remove event listener
-      return () =>
-        bannerImg.removeEventListener("load", () =>
-          bannerImg.classList.add("loaded")
-        );
+    //  Check if image is already loaded (cached images)
+    if (bannerImg.complete) {
+      setImageLoaded(true);
+    } else {
+      //  Proper event listener cleanup
+      const handleLoad = () => setImageLoaded(true);
+      bannerImg.addEventListener("load", handleLoad);
+
+      return () => bannerImg.removeEventListener("load", handleLoad);
     }
   }, []);
 
   return (
-    <div className={props.classes}>
+    <div className={`${classes} banner-wrapper`}>
       <img
         sizes="(max-width: 1366px) 100vw, 1366px"
-        srcSet={props.srcSet}
-        src={props.src}
+        srcSet={srcSet}
+        src={src}
         alt="Marcus &amp; Taylor - Banner"
-        className="bannerimg"
+        className={`bannerimg ${imageLoaded ? "loaded" : ""}`} // 🔹 Add blur transition
         loading="lazy"
-        ref={imageRef} // Attach the ref to the img element
+        ref={imageRef}
       />
     </div>
   );

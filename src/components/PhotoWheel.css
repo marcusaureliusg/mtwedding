@@ -13,7 +13,6 @@
 .photo-wheel img {
   max-width: 80%;
   height: auto;
-  border-radius: 10px;
   object-fit: contain;
   max-height: 800px;
 }
@@ -49,27 +48,52 @@
 .thumbnail-container {
   display: flex;
   padding: 10px;
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   overflow-x: auto;
-  justify-content: flex-start; /* Center items horizontally */
-  flex-wrap: nowrap; /* Prevents thumbnails from wrapping into multiple lines */
+  overflow-y: hidden;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
   caret-color: transparent;
+  white-space: nowrap;
 }
 
 .thumbnail-container::-webkit-scrollbar {
   display: none;
 }
 
+.main-photo {
+  max-width: 80%;
+  height: auto;
+  border-radius: 50px;
+  object-fit: contain;
+  max-height: 800px;
+  filter: blur(4px);
+  opacity: 0.5;
+  transition: filter 0.3s ease-out, opacity 0.3s ease-in-out;
+  will-change: filter, opacity;
+  min-height: 475px; /* Holds space for the image without forcing aspect ratio */
+}
+
+.main-photo.loaded {
+  filter: blur(0);
+  opacity: 1;
+  border-radius: 50px;
+}
+
+/* 🔹 Prevent thumbnails from shifting */
 .thumbnail {
   flex: none;
   width: 100px;
   height: auto;
   margin-right: 10px;
+  border-radius: 10px;
   cursor: pointer;
   opacity: 0.5;
   transition: opacity 0.3s ease, transform 0.3s ease;
   transform: scale(0.95);
+  object-fit: contain;
+  min-height: 75px; /* Holds space for thumbnails */
 }
 
 .thumbnail:hover,
@@ -121,7 +145,6 @@
   }
 }
 
-/* Additional styles */
 .wheel-button:hover {
   filter: drop-shadow(0 0 0.9rem #8d1a0baa);
 }

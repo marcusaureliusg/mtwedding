@@ -1,19 +1,15 @@
 import { useState, useRef, useEffect } from "react";
 import "./PhotoWheel.css";
 
-// Function to detect mobile device
-function isMobileDevice() {
-  return "ontouchstart" in window || navigator.maxTouchPoints > 0;
-}
-
 // Global reference to track last active PhotoWheel
 const lastActivePhotoWheel = { current: null };
 
 const PhotoWheel = ({ images, id }) => {
   const [currentImage, setCurrentImage] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(false); // Track loading state
   const thumbnailContainerRef = useRef(null);
+  const isActiveWheel = lastActivePhotoWheel.current === id; // Track if this is the active wheel
   const scrollIntervalRef = useRef(null);
-  const isMobile = isMobileDevice();
 
   // Dragging state
   const isDragging = useRef(false);
@@ -22,10 +18,20 @@ const PhotoWheel = ({ images, id }) => {
   const movedDistance = useRef(0);
 
   useEffect(() => {
-    if (lastActivePhotoWheel.current === id) {
+    if (isActiveWheel) {
       scrollToThumbnail(currentImage);
     }
   }, [currentImage]);
+
+  // Reset loading state when switching images, but check if it's already cached
+  useEffect(() => {
+    if (!isActiveWheel) return;
+
+    setImageLoaded(false);
+    const img = new Image();
+    img.src = images[currentImage];
+    img.onload = () => setImageLoaded(true);
+  }, [currentImage, isActiveWheel]);
 
   const handleThumbnailClick = (index) => {
     if (movedDistance.current > 5) {
@@ -33,8 +39,9 @@ const PhotoWheel = ({ images, id }) => {
       return;
     }
 
-    if (lastActivePhotoWheel.current !== id) {
-      lastActivePhotoWheel.current = id; // Set this wheel as active
+    if (!isActiveWheel) {
+      lastActivePhotoWheel.current = id; // Switch active wheel
+      setImageLoaded(false);
     }
 
     setCurrentImage(index);
@@ -43,7 +50,7 @@ const PhotoWheel = ({ images, id }) => {
 
   // Ensure only the last clicked PhotoWheel responds to arrow keys
   const handleKeyPress = (event) => {
-    if (lastActivePhotoWheel.current !== id) return;
+    if (!isActiveWheel) return;
 
     if (event.key === "ArrowRight") {
       handleNext();
@@ -53,13 +60,15 @@ const PhotoWheel = ({ images, id }) => {
   };
 
   const handleNext = () => {
-    const newIndex = (currentImage + 1) % images.length;
-    setCurrentImage(newIndex);
+    setImageLoaded(false); // Reset blur before loading new image
+    setCurrentImage((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   const handlePrevious = () => {
-    const newIndex = (currentImage - 1 + images.length) % images.length;
-    setCurrentImage(newIndex);
+    setImageLoaded(false); // Reset blur before loading new image
+    setCurrentImage(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+    );
   };
 
   const startScrolling = (direction) => {
@@ -85,7 +94,7 @@ const PhotoWheel = ({ images, id }) => {
   const scrollToThumbnail = (index) => {
     if (!thumbnailContainerRef.current) return;
 
-    if (lastActivePhotoWheel.current !== id) return; // Ensure only active wheel scrolls
+    if (!isActiveWheel) return; // Ensure only active wheel scrolls
 
     const container = thumbnailContainerRef.current;
     const selectedThumbnail = container.children[index];
@@ -165,10 +174,13 @@ const PhotoWheel = ({ images, id }) => {
       onKeyDown={handleKeyPress}
       onClick={handleClick}
     >
+      {/* Blurred placeholder before loading */}
       <img
         src={images[currentImage]}
-        alt={`Engagement photo ${currentImage + 1}`}
+        alt={`Photo ${currentImage + 1}`}
+        className={`main-photo ${imageLoaded ? "loaded" : ""}`} // Blur removed when loaded
         loading="lazy"
+        onLoad={() => setImageLoaded(true)}
       />
       <div className="thumbnail-container-wrap">
         <div

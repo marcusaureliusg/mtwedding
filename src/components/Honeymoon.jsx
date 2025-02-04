@@ -211,7 +211,7 @@ function Honeymoon() {
             <Link to="/island" className="dp-icon">
               the Island
             </Link>{" "}
-            next winter for some fun and adventure...
+            where we got engaged next winter for some fun and adventure...
           </p>
         </section>
       </div>
