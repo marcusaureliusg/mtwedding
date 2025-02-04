@@ -17,7 +17,7 @@ function MiniMap() {
       [2359, 3071],
     ];
 
-    console.log("Initializing MiniMap...");
+    //console.log("Initializing MiniMap...");
 
     if (!miniMapInstance.current) {
       miniMapInstance.current = L.map(miniMapRef.current, {
@@ -53,13 +53,6 @@ function MiniMap() {
       const mainCenter = mainMap.getCenter();
       const mainBounds = mainMap.getBounds();
       const mainZoom = mainMap.getZoom();
-
-      console.log(
-        "Main Map Zoom:",
-        mainZoom,
-        "| MiniMap Zoom Before Update:",
-        miniMapInstance.current.getZoom()
-      );
 
       // Keep the MiniMap zoomed out relative to the main map
       const miniMapZoom = Math.max(mainZoom - 4, -4);

@@ -211,9 +211,9 @@ function Island() {
     <>
       {/* Modal */}
       <Modal
-        classes="modal-backdrop-slim"
+        classes="modal-backdrop-eng"
         showModal={showModal}
-        contentClass="modal-content-slim"
+        contentClass="modal-content-eng"
         onClose={() => setShowModal(false)}
         zIndex={modalZIndex}
       >
@@ -234,10 +234,14 @@ function Island() {
             onDefeat={() => {
               setSmokeActive(true);
               setShowSmoke(false);
-              setModalContentSrc(
-                "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1797689955&color=%23b442ca&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-              ); // 🎥 Victory Video
-              setModalZIndex(1000); // Bring the modal to the foreground
+              setShowModal(false); // Hide modal briefly
+              setTimeout(() => {
+                setModalContentSrc(
+                  "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1797689955&color=%23b442ca&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+                );
+                setShowModal(true); // Re-show with updated content
+                setModalZIndex(1000); // Bring the modal to the foreground
+              }, 10);
             }}
             onEnveloped={() => {
               setSmokeActive(false);

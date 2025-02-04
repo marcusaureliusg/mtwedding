@@ -60,7 +60,7 @@ const FlipTimer = ({ targetDate, customMinutes, playAudio, stopAudio }) => {
 
       // Check for completion here and update state accordingly
       if (newTimeLeft.minutes === "000" && newTimeLeft.seconds === "00") {
-        console.log("set complete");
+        //console.log("set complete");
         setIsCompleted(true);
         clearInterval(interval); // Make sure to clear this interval to prevent further updates
       }
