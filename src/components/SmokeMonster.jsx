@@ -19,7 +19,7 @@ export default function SmokeMonster({
   onDefeat,
   onEnveloped,
   timeToEnvelop = 53000,
-  maxHealth = !IS_MOBILE ? 108000 : 10800,
+  maxHealth = 108000,
 }) {
   // ========== Monster States in React ==========
 
