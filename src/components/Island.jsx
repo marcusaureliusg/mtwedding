@@ -30,7 +30,7 @@ function Island() {
   const [showSmoke, setShowSmoke] = useState(false); // Manage smoke state inside Island
   const [modalZIndex, setModalZIndex] = useState(5); // Start in the background
 
-  // ✅ Modal State
+  // Modal State
   const [showModal, setShowModal] = useState(false);
   const [modalContentSrc, setModalContentSrc] = useState("");
 
@@ -240,13 +240,13 @@ function Island() {
                   "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1797689955&color=%23b442ca&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
                 );
                 setShowModal(true); // Re-show with updated content
-                setModalZIndex(1000); // Bring the modal to the foreground
+                setModalZIndex(100000); // Bring the modal to the foreground
               }, 10);
             }}
             onEnveloped={() => {
               setSmokeActive(false);
               setShowSmoke(false);
-              setModalZIndex(1000); // Bring the modal to the foreground
+              setModalZIndex(100000); // Bring the modal to the foreground
             }}
           />
         )}

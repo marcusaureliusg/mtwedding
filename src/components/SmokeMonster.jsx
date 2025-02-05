@@ -101,12 +101,16 @@ export default function SmokeMonster({
     // If the texture is already loaded, create the system now
     if (globalTexture) {
       //console.log("Texture found => creating ParticleSystem");
-      globalSystem = new ParticleSystem(
-        p5.width / 2,
-        p5.height / 2,
-        globalTexture,
-        p5
-      );
+      let startX = p5.width / 2;
+      let startY = p5.height / 2;
+
+      // Adjust for mobile screen size
+      if (IS_MOBILE) {
+        startX = p5.width * 0.5; // Center horizontally
+        startY = p5.height * 0.6; // Lower it slightly for better visibility
+      }
+
+      globalSystem = new ParticleSystem(startX, startY, globalTexture, p5);
 
       // Attach damage handler safely
       p5._reactSmokeMonsterDamage = (damage) => {
@@ -158,8 +162,16 @@ export default function SmokeMonster({
 
     // Update the origin to follow the mouse or touch
     if (monsterState !== "done") {
-      let targetX = IS_MOBILE ? p5.touchX : p5.mouseX;
-      let targetY = IS_MOBILE ? p5.touchY : p5.mouseY;
+      let targetX = p5.mouseIsPressed
+        ? p5.mouseX
+        : p5.touches.length
+        ? p5.touches[0].x
+        : globalSystem.origin.x;
+      let targetY = p5.mouseIsPressed
+        ? p5.mouseY
+        : p5.touches.length
+        ? p5.touches[0].y
+        : globalSystem.origin.y;
 
       // If the mouse is near the center, add some jitter
       if (
@@ -300,12 +312,10 @@ export default function SmokeMonster({
 
   const handlePointerMove = (p5) => {
     if (monsterState === "fighting") {
-      const speed = p5.dist(
-        IS_MOBILE ? p5.touchX : p5.mouseX,
-        IS_MOBILE ? p5.touchY : p5.mouseY,
-        p5.pwinMouseX,
-        p5.pwinMouseY
-      );
+      const x = IS_MOBILE && p5.touches.length ? p5.touches[0].x : p5.mouseX;
+      const y = IS_MOBILE && p5.touches.length ? p5.touches[0].y : p5.mouseY;
+      const speed = p5.dist(x, y, p5.pwinMouseX, p5.pwinMouseY);
+
       if (speed > (IS_MOBILE ? 20 : 30)) {
         const newHp = Math.max(monsterHealth - 1, 0);
         setMonsterHealth(newHp);
