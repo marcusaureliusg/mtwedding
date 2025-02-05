@@ -35,6 +35,27 @@ function Island() {
   const [showModal, setShowModal] = useState(false);
   const [modalContentSrc, setModalContentSrc] = useState("");
 
+  useEffect(() => {
+    const preventScroll = (e) => {
+      if (showSmoke) {
+        e.preventDefault(); // Stop touch from scrolling the page
+      }
+    };
+
+    if (showSmoke) {
+      document.body.style.overflow = "hidden"; // Disable scrolling
+      document.addEventListener("touchmove", preventScroll, { passive: false });
+    } else {
+      document.body.style.overflow = "auto"; // Restore scrolling
+      document.removeEventListener("touchmove", preventScroll);
+    }
+
+    return () => {
+      document.body.style.overflow = "auto"; // reset
+      document.removeEventListener("touchmove", preventScroll);
+    };
+  }, [showSmoke]);
+
   const handleZoom = () => {
     if (!mapRef.current || !backgroundRef.current) return;
     const zoomLevel = mapRef.current.getZoom();
