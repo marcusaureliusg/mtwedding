@@ -10,7 +10,10 @@ import texturePath from "../assets/particle_texture.png";
 */
 let globalTexture = null;
 let globalSystem = null;
-const IS_MOBILE = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+const IS_MOBILE =
+  "ontouchstart" in window ||
+  navigator.maxTouchPoints > 0 ||
+  window.innerWidth < 800;
 
 export default function SmokeMonster({
   onDefeat,
