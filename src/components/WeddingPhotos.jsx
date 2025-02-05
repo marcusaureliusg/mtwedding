@@ -1,7 +1,7 @@
 import { banner9 } from "../assets/banners";
 import Banner from "./Banner";
 import { useEffect } from "react";
-import { wwhlImages } from "../assets/weddingphotos"; 
+import { wwhlImages } from "../assets/weddingphotos";
 import LinkPreview from "./LinkPreview";
 import PhotoWheel from "./PhotoWheel";
 import { Link } from "react-router-dom";
@@ -43,7 +43,7 @@ const WeddingPhotos = () => {
         </section>
         {/* Navigation Links */}
         <LinkPreview url={galleryUrl} />
-        <h2 className="section__header">Random Wedding Photos</h2>
+        <h2 className="section__header">Random Wedding Week Photos</h2>
       </div>
 
       {/* PhotoWheel with engagement images */}

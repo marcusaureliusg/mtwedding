@@ -205,13 +205,13 @@ function Honeymoon() {
         <section>
           <h2 className="section__header">Whats next?</h2>
           <p>
-            Whats next on our agenda? Well aside from our normal day to day we
-            are actively looking to go back to Europe in the fall and also back
-            to{" "}
+            Whats next on our agenda? Well, aside from our normal day-to-day, we
+            are looking to go back to Europe in the fall. In the winter, we want
+            to revisit{" "}
             <Link to="/island" className="dp-icon">
               the Island
             </Link>{" "}
-            where we got engaged next winter for some fun and adventure...
+            where we got engaged for some fun and adventure...
           </p>
         </section>
       </div>
