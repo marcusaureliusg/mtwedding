@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Sketch from "react-p5";
 // Adjust to your actual path:
 import texturePath from "../assets/particle_texture.png";
@@ -24,6 +24,11 @@ export default function SmokeMonster({
   const [monsterState, setMonsterState] = useState("spawning");
   const [monsterHealth, setMonsterHealth] = useState(maxHealth);
   const [finished, setFinished] = useState(false);
+  const prevHealth = useRef(monsterHealth);
+
+  useEffect(() => {
+    prevHealth.current = monsterHealth;
+  }, [monsterHealth]);
 
   // On mount, go directly to "fighting":
   useEffect(() => {
@@ -101,7 +106,7 @@ export default function SmokeMonster({
     // Force a resize for correct dimensions
     setTimeout(() => {
       p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
-    }, 100);
+    }, 500);
 
     // If the texture is already loaded, create the system now
     if (globalTexture) {
@@ -127,6 +132,49 @@ export default function SmokeMonster({
       //console.log("Texture not yet loaded => system not created");
       // Rely on the code in draw() to check again if we want a fallback
     }
+  };
+
+  const drawHealthBar = (p5) => {
+    const textPaddingX = 20; // Extra horizontal padding around text
+    const textPaddingY = 10; // Extra vertical padding around text
+    const textX = 20; // X position for text
+    const textY = 60; // Y position for text
+
+    p5.textSize(18);
+    p5.textFont("Arial", 18);
+    p5.textStyle(p5.BOLD);
+    p5.textAlign(p5.LEFT, p5.CENTER);
+
+    // Get actual text width to dynamically size the background
+    const textWidth = p5.textWidth(`Smoke Monster Health: ${monsterHealth}`);
+
+    // Health bar background (dynamically sized based on text width)
+    p5.fill(255); // White background for contrast
+    p5.rect(
+      textX - textPaddingX / 2, // Left padding
+      textY - textPaddingY, // Move it up slightly
+      textWidth + textPaddingX, // Expand width dynamically
+      35 + textPaddingY, // Increase height
+      5 // Rounded corners
+    );
+
+    // Health bar text
+    p5.fill(0); // Black text
+    p5.text(`Smoke Monster Health: ${monsterHealth}`, textX, textY);
+
+    // Only update reference if health has changed
+    if (prevHealth.current !== monsterHealth) {
+      prevHealth.current = monsterHealth;
+    }
+
+    // Draw health bar
+    p5.noStroke();
+    p5.fill(150);
+    p5.rect(20, 70, 200, 20);
+
+    p5.fill(255, 0, 0);
+    const barW = (monsterHealth / maxHealth) * 200;
+    p5.rect(20, 70, barW, 20);
   };
 
   const MAX_PARTICLES = IS_MOBILE ? 300 : 1000;
@@ -274,17 +322,7 @@ export default function SmokeMonster({
 
     // Run the system
     globalSystem.run();
-
-    // Health bar
-    p5.fill(0);
-    p5.text(`Monster Health: ${monsterHealth}`, 20, 60);
-    p5.noStroke();
-    p5.fill(150);
-    p5.rect(20, 70, 200, 20);
-
-    p5.fill(255, 0, 0);
-    const barW = (monsterHealth / maxHealth) * 200;
-    p5.rect(20, 70, barW, 20);
+    drawHealthBar(p5);
   };
 
   // Event handlers

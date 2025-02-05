@@ -25,6 +25,7 @@ function Island() {
   ];
   const mapRef = useRef(null);
   const backgroundRef = useRef(null);
+  const smokeLairRef = useRef(null);
   const [mapInstance, setMapInstance] = useState(null);
   const [smokeActive, setSmokeActive] = useState(false); // Track if it's active
   const [showSmoke, setShowSmoke] = useState(false); // Manage smoke state inside Island
@@ -191,8 +192,13 @@ function Island() {
       onClick: () => {
         if (!smokeActive) {
           console.log("🌫️ Summoning the Smoke Monster...");
+
           setTimeout(() => {
             setShowSmoke(true);
+            // Close the popup
+            if (smokeLairRef.current) {
+              smokeLairRef.current.closePopup();
+            }
           }, 1000);
           setSmokeActive(true);
           setShowModal(true);
@@ -278,6 +284,7 @@ function Island() {
             <Marker
               key={index}
               position={location.position}
+              ref={location.key === "SmokeLair" ? smokeLairRef : null}
               icon={L.divIcon({
                 className: "",
                 html: `<div class="custom-marker" style="background-color: ${
