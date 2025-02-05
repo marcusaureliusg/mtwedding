@@ -72,7 +72,7 @@
   opacity: 0.5;
   transition: filter 0.3s ease-out, opacity 0.3s ease-in-out;
   will-change: filter, opacity;
-  min-height: 475px; /* Holds space for the image without forcing aspect ratio */
+  min-height: 200px; /* Holds space for the image without forcing aspect ratio */
 }
 
 .main-photo.loaded {
