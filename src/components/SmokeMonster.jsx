@@ -98,6 +98,11 @@ export default function SmokeMonster({
     p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(parentRef);
     p5.colorMode(p5.RGB);
 
+    // Force a resize for correct dimensions
+    setTimeout(() => {
+      p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
+    }, 100);
+
     // If the texture is already loaded, create the system now
     if (globalTexture) {
       //console.log("Texture found => creating ParticleSystem");
@@ -138,7 +143,7 @@ export default function SmokeMonster({
     if (!globalSystem || !globalTexture) {
       p5.fill(0);
       p5.textSize(20);
-      p5.text("Loading smoke system...", 50, 50);
+      p5.text("Smoke Monster Coming...", 50, 50);
       // Optionally, if the texture loaded after setup, create the system now:
       if (globalTexture && !globalSystem) {
         //console.log("Creating system in draw => late loadImage");
@@ -206,7 +211,7 @@ export default function SmokeMonster({
     // Monster state debug
     p5.fill(0);
     p5.textSize(16);
-    p5.text(`Monster State: ${monsterState}`, 20, 20);
+    p5.text(`Smoke Monster is: ${monsterState}`, 20, 20);
 
     const spawnRate = IS_MOBILE ? 1 : 2;
 
