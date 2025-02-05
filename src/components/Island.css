@@ -116,7 +116,7 @@
   .mini-map-container {
     width: 150px;
     height: 150px;
-    top: 5px; /* 🔹 Adjust position */
+    top: 5px; /* Adjust position */
     right: 10px;
     border-width: 1px;
   }
