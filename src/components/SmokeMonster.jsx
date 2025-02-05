@@ -19,7 +19,7 @@ export default function SmokeMonster({
   onDefeat,
   onEnveloped,
   timeToEnvelop = 53000,
-  maxHealth = 108000,
+  maxHealth = !IS_MOBILE ? 108000 : 10800,
 }) {
   // ========== Monster States in React ==========
 
@@ -264,13 +264,12 @@ export default function SmokeMonster({
     p5.textSize(16);
     p5.text(`Smoke Monster is: ${monsterState}`, 20, 20);
 
-    const spawnRate = IS_MOBILE ? 1 : 2;
+    const spawnRate = IS_MOBILE ? 2 : 5;
 
-    // If fighting => moderate spawn
     if (monsterState === "fighting") {
       const dx = p5.map(p5.mouseX, 0, p5.width, -0.2, 0.2);
       globalSystem.applyForce(p5.createVector(dx, 0));
-      // spawn ~10 each frame
+
       for (let i = 0; i < spawnRate; i++) {
         globalSystem.addParticle();
       }
@@ -331,8 +330,8 @@ export default function SmokeMonster({
   // Event handlers
   const mousePressed = (p5) => {
     if (monsterState === "fighting") {
-      const newHp = Math.max(monsterHealth - 5, 0);
-      console.log("Clicked => health:", newHp);
+      let damage = IS_MOBILE ? 200 : 20; // Mobile taps hit harder
+      const newHp = Math.max(monsterHealth - damage, 0);
       setMonsterHealth(newHp);
     }
   };
@@ -362,8 +361,12 @@ export default function SmokeMonster({
       const y = IS_MOBILE && p5.touches.length ? p5.touches[0].y : p5.mouseY;
       const speed = p5.dist(x, y, p5.pwinMouseX, p5.pwinMouseY);
 
-      if (speed > (IS_MOBILE ? 20 : 30)) {
-        const newHp = Math.max(monsterHealth - 1, 0);
+      // Adjust damage based on device type
+      let damage = IS_MOBILE ? 30 : 3; // Reduced damage per hit on desktop
+      let minSpeed = IS_MOBILE ? 10 : 50; // Desktop requires faster movement
+
+      if (speed > minSpeed) {
+        const newHp = Math.max(monsterHealth - damage, 0);
         setMonsterHealth(newHp);
       }
     }
@@ -371,8 +374,9 @@ export default function SmokeMonster({
 
   const keyTyped = (p5) => {
     if (monsterState === "fighting") {
+      let damage = IS_MOBILE ? 1000 : 150; // Desktop gets reduced key damage
       if (["4", "8", "1", "5", "6", "2", "3"].includes(p5.key)) {
-        const newHp = Math.max(monsterHealth - 1000, 0);
+        const newHp = Math.max(monsterHealth - damage, 0);
         console.log(`Key ${p5.key} => health: ${newHp}`);
         setMonsterHealth(newHp);
       }
@@ -450,7 +454,8 @@ class ParticleSystem {
   }
 
   applyDeflectForce(mouseX, mouseY) {
-    let damage = 0; // Track damage applied
+    let totalDamage = 0; // Track total damage in one frame
+    const MAX_DEFLECTION_DAMAGE = IS_MOBILE ? 300 : 100; // Cap damage per frame
 
     for (const pt of this.particles) {
       const mouse = this.p5.createVector(mouseX, mouseY);
@@ -461,35 +466,37 @@ class ParticleSystem {
       if (distance < maxDistance) {
         dir.normalize();
         const strength = IS_MOBILE
-          ? 1.5
-          : this.p5.map(distance, 0, maxDistance, 10, 0);
-        const deflectForce = dir.mult(strength);
+          ? 1.2 // Slightly reduced force on mobile
+          : this.p5.map(distance, 0, maxDistance, 5, 0); // Reduced max force
 
+        const deflectForce = dir.mult(strength);
         pt.applyForce(deflectForce);
 
         if (!IS_MOBILE) {
-          // If particle is now moving TOWARD the origin (Smoke Monster), increase damage
           const movingTowardMonster =
             p5.Vector.dot(pt.vel, p5.Vector.sub(globalSystem.origin, pt.loc)) >
             0;
 
           if (movingTowardMonster) {
             const attraction = p5.Vector.sub(globalSystem.origin, pt.loc).mult(
-              0.05
-            ); // ✅ Small pull toward the monster
+              0.03
+            ); // Lowered pull force
             pt.applyForce(attraction);
-            const speed = pt.vel.mag(); // Get the particle speed
-            damage += Math.floor(speed * 3); // More speed = More damage
+            const speed = pt.vel.mag();
+
+            let damage = Math.floor(speed * 1.5); // Reduced damage multiplier
+            totalDamage += damage;
           }
         }
       }
     }
 
-    // Apply the calculated damage
-    if (damage > 0 && this.p5._reactSmokeMonsterDamage && !IS_MOBILE) {
+    // Apply capped damage
+    if (totalDamage > 0 && this.p5._reactSmokeMonsterDamage && !IS_MOBILE) {
+      totalDamage = Math.min(totalDamage, MAX_DEFLECTION_DAMAGE); // Apply cap
       setTimeout(() => {
-        console.log(`🔥 Deflection Damage: ${damage}`);
-        this.p5._reactSmokeMonsterDamage(damage);
+        console.log(`🔥 Deflection Damage: ${totalDamage}`);
+        this.p5._reactSmokeMonsterDamage(totalDamage);
       }, 0);
     }
   }
