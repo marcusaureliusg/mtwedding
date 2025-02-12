@@ -88,8 +88,8 @@ function Honeymoon() {
             heading back to the International, we stopped at The Glyptotek, a
             massive art museum housing original Van Gogh and Picasso paintings,
             ancient Egyptian artifacts and mummies, original Greek statues, and
-            so much more. That night we all went to an Irish Pub where we
-            enjoyed live music. Each day in Copenhagen we averaged about 20k
+            so much more. That night we celebrated Amy's bday and even went to an Irish Pub where we
+            enjoyed live sing-along music! Each day in Copenhagen we averaged about 20k
             steps as the city is incredibly walkable, with separate pedestrian
             and biking paths everywhere you went. The final few days were spent
             eating great food and spending time with great friends.
