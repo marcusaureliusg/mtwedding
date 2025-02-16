@@ -35,7 +35,7 @@ function Honeymoon() {
           <h2 className="section__header">Copenhagen:</h2>
           <p>
             The first stop of our trip was Copenhagen, Denmark. This city is
-            surrounded by ocean canals, beautiful architecture, cobblestone
+            surrounded by sea canals, beautiful architecture, cobblestone
             streets, and incredible food from all around the world. The first
             morning Marcus swam in the canal (which is filled with thousands of
             tiny harmless jellyfish), and then we explored the city and ate
